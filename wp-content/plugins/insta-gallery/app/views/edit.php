@@ -1,0 +1,399 @@
+<?php
+if (! defined('ABSPATH')) {
+    die();
+}
+$InstaGalleryItem = null;
+if (isset($_GET['ig_item']) && ! empty($_GET['ig_item'])) {
+    $ig_item_id = (int) $_GET['ig_item'];
+    $InstaGalleryItems = get_option('insta_gallery_items');
+    if (isset($InstaGalleryItems[$ig_item_id])) {
+        $InstaGalleryItem = $InstaGalleryItems[$ig_item_id];
+        $InstaGalleryItem['ig_item_id'] = $ig_item_id;
+    }
+}
+
+$active_username = true;
+$active_tag = false;
+if (isset($InstaGalleryItem['ig_select_from'])) {
+    if ($InstaGalleryItem['ig_select_from'] != 'username') {
+        $active_username = false;
+        $active_tag = true;
+    }
+}
+$active_gallery = true;
+$active_carousel = false;
+if (isset($InstaGalleryItem['ig_display_type'])) {
+    if ($InstaGalleryItem['ig_display_type'] == 'carousel') {
+        $active_gallery = false;
+        $active_carousel = true;
+    }
+}
+
+?>
+<p>
+	<a href="<?php echo INSGALLERY_URL_ADMIN_PAGE; ?>" title="View Galleries List"
+		class="ig-btn"><span class="dashicons dashicons-arrow-left-alt"></span>Back to
+		List</a>
+</p>
+<form method="post" id="ig-form-update"
+	action="<?php if(empty($InstaGalleryItem))  echo INSGALLERY_URL_ADMIN_PAGE; ?>">
+	<table class="form-table ig-table-edit">
+		<tbody>
+			<tr>
+				<th scope="row">Display Instagram Gallery from:</th>
+				<td>
+					<ul class="ig-list-buttons">
+						<li><input type="radio" id="ig_select_from-username" name="ig_select_from"
+							value="username" <?php if($active_username) echo 'checked';?> /><label
+							for="ig_select_from-username">User Name</label>
+							<div class="check"></div></li>
+						<li><input type="radio" id="ig_select_from-tag" name="ig_select_from"
+							value="tag" <?php if($active_tag) echo 'checked';?> /> <label
+							for="ig_select_from-tag"># Tag</label>
+							<div class="check"></div></li>
+					</ul> <span class="description"> (Please select option to show pics from
+						Instagram Username OR # Tag.)</span>
+
+				</td>
+			</tr>
+			<tr id="ig-select-username-wrap"
+				class="ig-tab-content-row <?php if($active_username) echo 'active';?>">
+				<td colspan="100%">
+					<table>
+						<tr>
+							<th scope="row">Instagram User Name:</th>
+							<td><input name="insta_user" type="text" placeholder="MyUsername"
+								value="<?php if(!empty($InstaGalleryItem['insta_user'])){echo $InstaGalleryItem['insta_user']; }?>" />
+								<span class="description">e.g. https://www.instagram.com/<strong
+									class="ig-thm-color" style="font-size: 120%;">MyUsername</strong>/
+							</span>
+								<p class="ig-generate-msgs">Please enter Instagram User Name.</p></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr id="ig-select-tag-wrap"
+				class="ig-tab-content-row  <?php if($active_tag) echo 'active';?>">
+				<td colspan="100%">
+					<table>
+						<tr>
+							<th scope="row">Instagram # Tag:</th>
+							<td><input name="insta_tag" type="text" placeholder="beautiful"
+								value="<?php if(!empty($InstaGalleryItem['insta_tag'])){echo $InstaGalleryItem['insta_tag']; }?>" />
+								<span class="description">e.g. https://www.instagram.com/explore/tags/<strong
+									style="font-size: 120%; color: #e23565;">beautiful</strong>/
+							</span>
+								<p class="ig-generate-msgs">Please enter Instagram # Tag.</p></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">Pictures Limit:</th>
+				<td><input name="insta_limit" type="number" min="1" max="20"
+					value="<?php if(!empty($InstaGalleryItem['insta_limit'])){echo $InstaGalleryItem['insta_limit']; } else {echo '12'; }?>" />
+					<span class="description">number of pics to display on page. (max: 20)</span></td>
+			</tr>
+			<tr>
+				<th scope="row">Show As:</th>
+				<td>
+					<ul class="ig-list-buttons">
+						<li><input type="radio" id="ig_display_type-gallery"
+							name="ig_display_type" value="gallery"
+							<?php if($active_gallery) echo 'checked';?> /><label
+							for="ig_display_type-gallery">Gallery</label>
+							<div class="check"></div></li>
+						<li><input type="radio" id="ig_display_type-carousel"
+							name="ig_display_type" value="carousel"
+							<?php if($active_carousel) echo 'checked';?> /><label
+							for="ig_display_type-carousel">Carousel</label>
+							<div class="check"></div></li>
+					</ul>
+				</td>
+			</tr>
+			<tr id="ig-section-as-galllery"
+				class="ig-tab-content-row <?php if($active_gallery) echo 'active';?>">
+				<td colspan="100%">
+					<p>Pictures will be displayed as Grid and we can popup gallery by clicking
+						them.</p>
+					<table>
+						<tr>
+							<th scope="row">No. of Pics Columns:</th>
+							<td><input name="insta_gal-cols" type="number" min="1" max="20"
+								value="<?php if(!empty($InstaGalleryItem['insta_gal-cols'])){echo $InstaGalleryItem['insta_gal-cols']; } else {echo 3;}?>" />
+								<span class="description">number of pics in a row. </span></td>
+							<td rowspan="3"><img
+								src="<?php echo INSGALLERY_URL; ?>/assets/media/demo-gallery.jpg"
+								alt="demo gallery" width="500" /></td>
+						</tr>
+						<tr>
+							<th scope="row">Image hover effect:</th>
+							<td><input name="insta_gal-hover" type="checkbox" value="1"
+								<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_gal-hover'])) ? '' : 'checked'; ?> />
+								<span class="description">mouseover animation effect on image </span></td>
+						</tr>
+						<tr>
+							<th scope="row">Space between images:</th>
+							<td><input name="insta_gal-spacing" type="checkbox" value="1"
+								<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_gal-spacing'])) ? '' : 'checked'; ?> />
+								<span class="description">add blank space between images </span></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr id="ig-section-as-carousel"
+				class="ig-tab-content-row <?php if($active_carousel) echo 'active';?>">
+				<td colspan="100%">
+					<p>Pictures will be displayed as Carousel.</p>
+					<table>
+						<tr>
+							<th scope="row">Slides per view:</th>
+							<td><input name="insta_car-slidespv" type="number" min="1" max="10"
+								value="<?php if(!empty($InstaGalleryItem['insta_car-slidespv'])){echo $InstaGalleryItem['insta_car-slidespv']; } else {echo 5;}?>" />
+								<span class="description">display number of pictures per slide view. </span></td>
+							<td rowspan="5"><img
+								src="<?php echo INSGALLERY_URL; ?>/assets/media/demo-carousel.jpg"
+								alt="demo carousel" width="500" /></td>
+						</tr>
+						<tr>
+							<th scope="row">Navigation arrows:</th>
+							<td><input name="insta_car-navarrows" type="checkbox" value="1"
+								<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_car-navarrows'])) ? '' : 'checked'; ?> />
+								<span class="description">show prev-next navigation arrows. </span></td>
+						</tr>
+						<tr>
+							<th scope="row">Dotted navigation:</th>
+							<td><input name="insta_car-dots" type="checkbox" value="1"
+								<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_car-dots'])) ? '' : 'checked'; ?> />
+								<span class="description">show dotted navigation buttons. </span></td>
+						</tr>
+						<tr>
+							<th scope="row">Space between slides:</th>
+							<td><input name="insta_car-spacing" type="checkbox" value="1"
+								<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_car-spacing'])) ? '' : 'checked'; ?> />
+								<span class="description">add space between carousel items. </span></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">Images thumbnail size:</th>
+				<td><select name="insta_thumb-size">
+						<option value="medium">Medium(640,320 x auto)</option>
+						<option value="small"
+							<?php echo (isset($InstaGalleryItem['insta_thumb-size']) && ($InstaGalleryItem['insta_thumb-size'] == 'small')) ? 'selected' : ''; ?>>Small(150
+							x 150)</option>
+				</select> <span class="description"><br />select small for square size
+						images. </span></td>
+			</tr>
+			<tr>
+				<th scope="row">Images hover color:</th>
+				<td><input id="insta_hover-color-choose" type="color"
+					value="<?php echo (!empty($InstaGalleryItem['insta_hover-color']) ? $InstaGalleryItem['insta_hover-color'] : '#007aff'); ?>" />
+					<input name="insta_hover-color" type="text" placeholder="#007aff"
+					value="<?php echo (!empty($InstaGalleryItem['insta_hover-color']) ? $InstaGalleryItem['insta_hover-color'] : ''); ?>" />
+					<span class="description">select color which is displayed when hovered over
+						images.<br />( <span class="ig-thm-color">color name should be in <i>hexadecimal
+								notation</i> e.g. #000000
+					</span> )
+				</span></td>
+			</tr>
+			<tr>
+				<th scope="row">Popup images on thumbnail click:</th>
+				<td><input name="insta_gal-popup" type="checkbox" value="1"
+					<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_gal-popup'])) ? '' : 'checked'; ?> />
+					<span class="description">show popup gallery by clicking on image
+						thumbnail. <br />( <span class="ig-thm-color">uncheck this if it conflicts
+							with other plugins, like: fancybox popup etc.</span> )
+				</span></td>
+			</tr>
+			<tr>
+				<th scope="row">Display Likes:</th>
+				<td><input name="insta_likes" type="checkbox" value="1"
+					<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_likes'])) ? '' : 'checked'; ?> />
+					<span class="description">display likes count of images. </span></td>
+			</tr>
+			<tr>
+				<th scope="row">Display Comments:</th>
+				<td><input name="insta_comments" type="checkbox" value="1"
+					<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_comments'])) ? '' : 'checked'; ?> />
+					<span class="description">display comments count of images. </span></td>
+			</tr>
+			<tr>
+				<th scope="row">Display Instagram Link Button:</th>
+				<td><input name="insta_instalink" type="checkbox" value="1"
+					<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_instalink'])) ? '' : 'checked'; ?> />
+					<span class="description">show the button to open Instagram site link </span></td>
+			</tr>
+			<tr id="ig-section-igbtn"
+				class="ig-tab-content-row <?php if(isset($InstaGalleryItem) && !empty($InstaGalleryItem['insta_instalink'])) echo 'active';?>">
+				<td colspan="100%">
+					<table>
+						<tr>
+							<th scope="row">Instagram Button Text:</th>
+							<td><input name="insta_instalink-text" type="text"
+								placeholder="view on Instagram"
+								value="<?php if(!empty($InstaGalleryItem['insta_instalink-text'])){echo $InstaGalleryItem['insta_instalink-text']; }?>" />
+								<span class="description">update Instagram button text here.</span></td>
+						</tr>
+						<tr>
+							<th scope="row">Button Background Color:</th>
+							<td><input id="insta_instalink-bgcolor-choose" type="color"
+								value="<?php echo (!empty($InstaGalleryItem['insta_instalink-bgcolor']) ? $InstaGalleryItem['insta_instalink-bgcolor'] : '#c32a67'); ?>" />
+								<input name="insta_instalink-bgcolor" type="text" placeholder="#c32a67"
+								value="<?php echo (!empty($InstaGalleryItem['insta_instalink-bgcolor']) ? $InstaGalleryItem['insta_instalink-bgcolor'] : ''); ?>" />
+								<span class="description">select color which is displayed on button background.<br />( <span class="ig-thm-color">color name should be in
+										<i>hexadecimal notation</i> e.g. #000000
+								</span> )
+							</span></td>
+						</tr>
+						<tr>
+							<th scope="row">Button Mouse Hover Color:</th>
+							<td><input id="insta_instalink-hvrcolor-choose" type="color"
+								value="<?php echo (!empty($InstaGalleryItem['insta_instalink-hvrcolor']) ? $InstaGalleryItem['insta_instalink-hvrcolor'] : '#da894a'); ?>" />
+								<input name="insta_instalink-hvrcolor" type="text" placeholder="#da894a"
+								value="<?php echo (!empty($InstaGalleryItem['insta_instalink-hvrcolor']) ? $InstaGalleryItem['insta_instalink-hvrcolor'] : ''); ?>" />
+								<span class="description">select color which is displayed when hovered
+									over button.<br />( <span class="ig-thm-color">color name should be in
+										<i>hexadecimal notation</i> e.g. #000000
+								</span> )
+							</span></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div>
+		<button class="button-primary ig-add-update" type="submit">
+			<span class="dashicons dashicons-plus"></span> Update / Add
+		</button>
+		<p class="description">update info here and copy/paste generated shortcode in
+			your post/pages.</p>
+	</div>
+	<input type="hidden" name="ig-form-update" value="true" />
+	<?php if(!empty($InstaGalleryItem['ig_item_id'])) {?>
+	<input type="hidden" name="igitem_id"
+		value="<?php echo $InstaGalleryItem['ig_item_id']; ?>" />
+	<?php } ?>
+</form>
+<script>
+    jQuery(document).ready(function($){
+        // by username/tag toggle
+    	$('input[name="ig_select_from"]').on('change',function(){
+			if(this.value == 'username'){
+				$('#ig-select-tag-wrap').hide(500, function() {
+					$('#ig-select-username-wrap').show( ).addClass('active');
+				  }).removeClass('active');
+			}else{
+				$('#ig-select-username-wrap').hide(500, function() {
+					$('#ig-select-tag-wrap').show( ).addClass('active');
+				  }).removeClass('active');
+			}				
+        });
+
+        // gallery, carousel toggle
+        $('input[name="ig_display_type"]').on('change',function(){
+            
+			if(this.value == 'gallery'){
+				$('#ig-section-as-carousel').hide(500, function() {
+					$('#ig-section-as-galllery').show(  ).addClass('active');
+				  }).removeClass('active');
+			}else if(this.value == 'carousel'){
+				$('#ig-section-as-galllery').hide(500, function() {
+					$('#ig-section-as-carousel').show( ).addClass('active');
+				  }).removeClass('active');
+			}
+				
+        });
+        
+        $('#ig-form-update').on('submit',function(ev){
+            var select_from = $('input[name="ig_select_from"]:checked').val(); 
+            var $insta_user = $('input[name="insta_user"]');
+            var $insta_tag = $('input[name="insta_tag"]');
+            var valid = true;
+            if((select_from == 'username') && ($insta_user.val() == '')){
+            	valid = false;
+            	$('#ig-select-username-wrap').addClass('error');
+            }else  if((select_from == 'tag') && ($insta_tag.val() == '')){
+            	valid = false;
+            	$('#ig-select-tag-wrap').addClass('error');
+            }
+            if( !valid ){
+            	
+            	setTimeout(function(){$('#ig-select-tag-wrap,#ig-select-username-wrap').removeClass('error');},5000);
+                $('html, body').animate({
+        	        scrollTop: 100
+        	    }, 500);
+                ev.preventDefault();
+    			return false;
+       		} 
+       });
+
+        // gallery color sync
+        $('#insta_hover-color-choose').on('change',function(){
+			$('input[name="insta_hover-color"]').val($(this).val());
+        });
+        $('input[name="insta_hover-color"]').on('change',function(){
+            var hvcolor = $(this).val();
+            if(hvcolor != ''){
+                var isOk  = /^#[0-9A-F]{6}$/i.test(hvcolor);
+                if(!isOk){
+    				alert('please enter valid color code');
+    				$(this).val('');
+    				return;
+                }
+                $('#insta_hover-color-choose').val($(this).val());
+            }else {
+            	$('#insta_hover-color-choose').val('#007aff');
+            }			
+        });
+
+        // instagram link button toggle
+        $('input[name="insta_instalink"]').on('change',function(){
+        	if(this.checked){
+            	$('#ig-section-igbtn').show('slow').addClass('active');
+        	}else{
+            	$('#ig-section-igbtn').hide('slow').removeClass('active');
+        	}
+        });
+
+        // button bgcolor sync
+        $('#insta_instalink-bgcolor-choose').on('change',function(){
+			$('input[name="insta_instalink-bgcolor"]').val($(this).val());
+        });
+        $('input[name="insta_instalink-bgcolor"]').on('change',function(){
+            var hvcolor = $(this).val();
+            if(hvcolor != ''){
+                var isOk  = /^#[0-9A-F]{6}$/i.test(hvcolor);
+                if(!isOk){
+    				alert('please enter valid color code');
+    				$(this).val('');
+    				return;
+                }
+                $('#insta_instalink-bgcolor-choose').val($(this).val());
+            }else {
+            	$('#insta_instalink-bgcolor-choose').val('#c32a67');
+            }			
+        });
+
+        // button hover color sync
+        $('#insta_instalink-hvrcolor-choose').on('change',function(){
+			$('input[name="insta_instalink-hvrcolor"]').val($(this).val());
+        });
+        $('input[name="insta_instalink-hvrcolor"]').on('change',function(){
+            var hvcolor = $(this).val();
+            if(hvcolor != ''){
+                var isOk  = /^#[0-9A-F]{6}$/i.test(hvcolor);
+                if(!isOk){
+    				alert('please enter valid color code');
+    				$(this).val('');
+    				return;
+                }
+                $('#insta_instalink-hvrcolor-choose').val($(this).val());
+            }else {
+            	$('#insta_instalink-hvrcolor-choose').val('#da894a');
+            }			
+        });
+    });
+</script>

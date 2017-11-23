@@ -1,0 +1,57 @@
+[
+
+  {
+    "name": "Классический",
+    "price": "500 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "30 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_01.png",
+    "link" : "#"
+  },
+
+  {
+    "name": "Аппаратный",
+    "price": "1999 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_02.png",
+    "link" : "#"
+  },
+
+  {
+    "name": "Аппаратный",
+    "price": "3000 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "40 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_01.png",
+    "link" : "#"
+  },
+
+  {
+    "name": "Аппаратный",
+    "price": "600 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "20 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_01.png",
+    "link" : "#"
+  },
+
+  {
+    "name": "Аппаратный",
+    "price": "1999 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_01.png",
+    "link" : "#"
+  },
+
+  {
+    "name": "Аппаратный",
+    "price": "1999 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_01.png",
+    "link" : "#"
+  }
+
+]
