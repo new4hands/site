@@ -2,78 +2,60 @@
  * Created by PK on 10.11.2017.
  */
 
-jQuery(document).ready(function () {
-    (function(jQuery) {
-	jQuery.lockfixed(".services-sticky",{offset: {top: 10, bottom: 10}});
-})(jQuery);
+ jQuery(document).ready(function () {
 
-     /*Выбор города*/
-
-    jQuery(".showf-btn").click(function () {
-        jQuery('#ouibounce-modal').fadeIn(400);
-    });
-
-    jQuery(".popup__cross-btn").click(function () {
-        jQuery('#ouibounce-modal').fadeOut(400);
-    });
-
-    jQuery(".city__item").click(function () {
-        jQuery('#ouibounce-modal').delay(700).fadeOut(400);
-    });
-
-    jQuery("#ouibounce-modal").click(function (e) {
-        if (jQuery(e.target).closest(".popup").length == 0)
-            jQuery("#ouibounce-modal").fadeOut(400);
-    });
-
-    /*Отображение текущего города*/
-
-    jQuery(".city__item").bind("click", function () {
-        var сhosenCityText = jQuery(this).text();
-        var currentCity = jQuery(".current-city__item");
-
-        if (!(currentCity.text())) {
-            currentCity.append(сhosenCityText).addClass("city_animation");
-
-        } else if (!(currentCity.html() == сhosenCityText)) {
-            currentCity.empty().append(сhosenCityText).removeClass("city_animation");
-            setTimeout(function () {
-                currentCity.addClass("city_animation");
-            }, 1);
-        } else {
-
-        }
-    });
-    
+    (function (jQuery) {
+        jQuery.lockfixed(".services-sticky", {offset: {top: 10, bottom: 10}});
+    })(jQuery);
 
     var serviceList = document.querySelector(".services-list");
     var apps = {};
 
+    jQuery(".services-sticky__link").eq(0).bind("click", function() {
 
-    (function () {
+            jQuery(".services-list").empty();
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/wp-content/themes/cinderella/json/manicure.json", true);
+            xhr.send();
+            xhr.onload = function () {
 
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "/wp-content/themes/cinderella/json/services.json", true);
-        xhr.send();
-        xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var data = xhr.responseText;
+                }
+                var apps = JSON.parse(data);
+                var li = apps.length;
 
-            if (xhr.status === 200) {
-                var data = xhr.responseText;
-            }
-            var apps = JSON.parse(data);
-            var li = apps.length;
+                for (var i = 0; i < li; i++) {
+                    setInterval(insertBlock(i, apps), 5000);
+                }
+                jQuery(".services-title__text").empty().text("Маникюр");
+            };
+    });
 
-            for (var i = 0; i < li; i++) {
-                setInterval(insertBlock(i, apps), 5000);
-            }
+     jQuery(".services-sticky__link").eq(0).trigger('click');
 
-        };
-    }());
+     jQuery(".services-sticky__link").eq(1).bind("click", function() {
+     jQuery(".services-list").empty();
+     var xhr = new XMLHttpRequest();
+     xhr.open("GET", "/wp-content/themes/cinderella/json/pedicure.json", true);
+     xhr.send();
+     xhr.onload = function () {
+
+        if (xhr.status === 200) {
+            var data = xhr.responseText;
+        }
+        var apps = JSON.parse(data);
+        var li = apps.length;
+
+        for (var i = 0; i < li; i++) {
+            setInterval(insertBlock(i, apps), 5000);
+        }
+        jQuery(".services-title__text").empty().text("Педикюр");
+    };
+});
 
     function insertBlock(i, apps) {
-
         if (i < apps.length) {
-
             var blockWrapper = document.createElement("div");
             serviceList.appendChild(blockWrapper);
             blockWrapper.classList.add("service-item__wrapper");
@@ -123,18 +105,20 @@ jQuery(document).ready(function () {
             block_description.innerHTML = apps[i].description;
         }
         showDescription();
-        
-       
-        jQuery(".service-item__wrapper").each(function(index) {
-              jQuery(this).delay(167 * index).animate({'opacity': 1}, 500);
+
+
+        jQuery(".service-item__wrapper").each(function (index) {
+            jQuery(this).delay(167 * index).animate({'opacity': 1}, 300);
         });
     }
-    
-     jQuery(".search").bind("click", function () {
-         jQuery(this).delay(70).animate({ width: "100%" }, 350);
-     });
+
+    jQuery(".search").bind("click", function () {
+        jQuery(this).delay(70).animate({width: "100%"}, 350);
+    });
+
 
     function showDescription() {
+
         jQuery(".service-item__info-icon").bind("click", function (event) {
             event.preventDefault();
             var that = jQuery(this).closest(".service-item");
@@ -142,17 +126,17 @@ jQuery(document).ready(function () {
             jQuery(this).closest(".service-item").find(".service-item__description").show();
             jQuery(this).closest(".service-item").addClass("service-item__appear");
 
-            jQuery(document).mouseout(function (e) {
-                var div = that;
-                if (!div.is(e.target)
-                    && div.has(e.target).length === 0) {
-                    that.each(function (index) {
-                        that.removeClass('service-item__appear');
-                        that.find(".service-item__description").hide();
-                    });
-                }
-            });
         });
+
+
+        jQuery(".service-item__wrapper").mouseleave(function(event){
+            event.preventDefault();
+            var that = jQuery(this).find(".service-item");
+            that.removeClass('service-item__appear');
+            that.find(".service-item__description").hide();
+        });
+
+
     }
 
 });

@@ -1,0 +1,15 @@
+[
+
+  {
+    "city": "Казань",
+    "type": "Салон",
+    "name": "ТЦ Тандем",
+    "Address": "проспект Ибрагимова, 56, ТЦ Тандем",
+    "Time" : "10.00-22.00",
+    "Number": "+7(499)3751313",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  }
+
+]

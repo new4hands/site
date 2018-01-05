@@ -17,16 +17,20 @@ jQuery(document).ready(function () {
 
     /*Появление больших меток в вертикальном скроллбаре */
 
-    var top = 0;
-    var headerPoint = top + parseInt(jQuery("#header").offset().top);
-    var mainPoint = top + parseInt(jQuery("#main").offset().top);
-    var studiosPoint = top + parseInt(jQuery("#studios").offset().top);
-    var instPoint = top + parseInt(jQuery("#instagram").offset().top);
-    var aboutPoint = top + parseInt(jQuery("#about").offset().top);
+    var identifier,
+        top = 0,
+        headerPoint = top + parseInt(jQuery("#header").offset().top),
+        btnDisapear = top + parseInt(jQuery("#header").offset().top + 280),
+        mainPoint = top + parseInt(jQuery("#main").offset().top),
+        studiosPoint = top + parseInt(jQuery("#studios").offset().top),
+        instPoint = top + parseInt(jQuery("#instagram").offset().top),
+        aboutPoint = top + parseInt(jQuery("#about").offset().top),
 
-    var identifier;
+        statisticsPoint = top + parseInt(jQuery("#statistics").offset().top),
+        navTopPoint = top + parseInt(jQuery("#header").offset().top + 520);
 
-    jQuery(window).bind('scroll', function () {
+
+        jQuery(window).bind('scroll', function () {
         var scrolled = jQuery(window).scrollTop();
 
         if ((scrolled >= headerPoint) && (scrolled < mainPoint)) {
@@ -67,10 +71,51 @@ jQuery(document).ready(function () {
             });
             jQuery(".attached-nav__item").eq(4).addClass("active");
         }
+
+        if (scrolled >= btnDisapear) {
+            jQuery(".entry_big").hide();
+        }
+
+        if (scrolled < btnDisapear) {
+            jQuery(".entry_big").show();
+        }
+
+    });
+
+    /*Изменение вида tоp-nav главной страницы*/
+
+    jQuery(window).bind('scroll', function () {
+        var scrolled = jQuery(window).scrollTop();
+
+        with (jQuery(".page-id-1240")) {
+
+            if (scrolled >= navTopPoint) {
+                jQuery(".logo__link").removeClass("logo__link_non-active").addClass("logo__link_active");
+                jQuery(".top_nav .top_nav_wrapper").removeClass("top_nav_non-active").addClass("top_nav_active");
+                jQuery(".top_nav_wrapper > ul > li > a").removeClass("top_nav__link_non-active").addClass("top_nav__link_active");
+                jQuery(".top_nav .icon_text strong").removeClass("icon_text_phone_non-active").addClass("icon_text_phone_active");
+                jQuery(".top_nav .icon_text span").removeClass("icon_text_phone-text_non-active").addClass("icon_text_phone-text_active");
+                jQuery(".current-city__item").removeClass("current-city__item_non-active").addClass("current-city__item_active");
+                jQuery(".social__link_to_inst_small").removeClass("social__link_to_inst_small_non-active").addClass("social__link_to_inst_small_active");
+                jQuery(".social__link_to_vk_small").removeClass("social__link_to_vk_small_non-active").addClass("social__link_to_vk_small_active");
+                jQuery(".social__link_to_youtube_small").removeClass("social__link_to_youtube_small_non-active").addClass("social__link_to_youtube_small_active");
+            }
+
+            if (scrolled < navTopPoint) {
+                jQuery(".logo__link").removeClass("logo__link_active").addClass("logo__link_non-active");
+                jQuery(".top_nav .top_nav_wrapper").removeClass("top_nav_active").addClass("top_nav_non-active");
+                jQuery(".top_nav_wrapper > ul > li > a").removeClass("top_nav__link_active").addClass("top_nav__link_non-active");
+                jQuery(".top_nav .icon_text strong").removeClass("icon_text_phone_active").addClass("icon_text_phone_non-active");
+                jQuery(".top_nav .icon_text span").removeClass("icon_text_phone-text_active").addClass("icon_text_phone-text_non-active");
+                jQuery(".current-city__item").removeClass("current-city__item_active").addClass("current-city__item_non-active");
+                jQuery(".social__link_to_inst_small").removeClass("social__link_to_inst_small_active").addClass("social__link_to_inst_small_non-active");
+                jQuery(".social__link_to_vk_small").removeClass("social__link_to_vk_small_active").addClass("social__link_to_vk_small_non-active");
+                jQuery(".social__link_to_youtube_small").removeClass("social__link_to_youtube_small_active").addClass("social__link_to_youtube_small_non-active");
+            }
+        }
     });
 
     /*Переключение на блок вниз*/
-
 
     jQuery(".js-next").bind("click", function () {
         if (identifier == 1) {
@@ -94,20 +139,20 @@ jQuery(document).ready(function () {
     /*Выбор города*/
 
     jQuery(".showf-btn").click(function () {
-        jQuery('#ouibounce-modal').fadeIn(400);
+        jQuery('.ouibounce-modal_city').fadeIn(400);
     });
 
     jQuery(".popup__cross-btn").click(function () {
-        jQuery('#ouibounce-modal').fadeOut(400);
+        jQuery('.ouibounce-modal_city').fadeOut(400);
     });
 
     jQuery(".city__item").click(function () {
-        jQuery('#ouibounce-modal').delay(700).fadeOut(400);
+        jQuery('.ouibounce-modal_city').delay(700).fadeOut(400);
     });
 
-    jQuery("#ouibounce-modal").click(function (e) {
+    jQuery(".ouibounce-modal_city").click(function (e) {
         if (jQuery(e.target).closest(".popup").length == 0)
-            jQuery("#ouibounce-modal").fadeOut(400);
+            jQuery(".ouibounce-modal_city").fadeOut(400);
     });
 
     /*Отображение текущего города*/
@@ -129,70 +174,32 @@ jQuery(document).ready(function () {
         }
     });
 
+    /*Slider buttons*/
+    setTimeout(function () {
+        jQuery(".ms-container").append("<button class='share-image__button'>Акции</button>").fadeIn(70);
+        jQuery(".master-slider").append("<div class='entry entry_share entry_share_01'><button class='entry__button entry__button_share'>Записаться</button></div>").fadeIn(70);
+    }, 50);
 
-    /*Popup Instagram
-
-
-    jQuery('.ouibounce-modal_instagram').delay(2500).fadeIn(250);
-
-    jQuery(".popup-instagram__cross").click(function (event) {
-        event.preventDefault();
-        jQuery('.ouibounce-modal_instagram').fadeOut(200);
-    });
-
-
-    jQuery(this).keydown(function (event) {
-        if (event.which == 27)
-            jQuery('.ouibounce-modal_instagram').fadeOut(200);
-    });*/
+    /* var entryShare_01 = jQuery.create("div");
+     entryShare_01.addClass("entry").addClass("entry_share").addClass("entry_share_01");
+     jQuery(".ms-container").append(shareButton); */
 
 
-    /*Рисование фона для блока slider, slder2, slder3
+  /*  Popup Instagram*/
 
-     function drawBackgrounds() {
-     var canvas = document.querySelector('#canvas');
-     var canvas_2 = document.querySelector('#canvas2');
-     var canvas_3 = document.querySelector('#canvas3');
+     jQuery('.ouibounce-modal_instagram').delay(2500).fadeIn(250);
 
-     if (canvas.getContext) {
-     var figure = canvas.getContext('2d');
-     figure.beginPath();
-     figure.moveTo(0, 0);
-     figure.lineTo(960, 0);
-     figure.lineTo(710, 305);
-     figure.lineTo(980, 580);
-     figure.lineTo(0, 520);
-     figure.fillStyle = "#e3c9d9";
-     figure.fill();
-     }
-     if (canvas_2.getContext) {
-     var figure_2 = canvas_2.getContext('2d');
-     figure_2.beginPath();
-     figure_2.moveTo(1920, 50);
-     figure_2.lineTo(980, 0);
-     figure_2.lineTo(1130, 305);
-     figure_2.lineTo(970, 580);
-     figure_2.lineTo(1920, 560);
-     figure_2.fillStyle = "#fff7c7";
-     figure_2.fill();
+     jQuery(".popup-instagram__cross").click(function (event) {
+     event.preventDefault();
+     jQuery('.ouibounce-modal_instagram').fadeOut(200);
+     });
 
-     }
-     if (canvas_3.getContext) {
-     var figure_3 = canvas_3.getContext('2d');
-     figure_3.beginPath();
-     figure_3.moveTo(0, 20);
-     figure_3.lineTo(970, 0);
-     figure_3.lineTo(770, 305);
-     figure_3.lineTo(920, 580);
-     figure_3.lineTo(0, 580);
-     figure_3.fillStyle = "#f3aabe";
-     figure_3.fill();
-     }
-     }
+     jQuery(this).keydown(function (event) {
+     if (event.which == 27)
+     jQuery('.ouibounce-modal_instagram').fadeOut(200);
+     });
 
-     drawBackgrounds();*/
-
-    /*Блок Карта Slidedown*/
+/*    Блок Карта Slidedown*/
 
     jQuery(".studios__slide").bind('click', function () {
         if (jQuery("div").is(".up")) {
@@ -214,12 +221,59 @@ jQuery(document).ready(function () {
         }
     });
 
+    /*Initial Video Play*/
+
+    setTimeout(function () {
+        jQuery(".video")[0].play();
+    }, 3000);
+
+    /*  Карта yandex API*/
+
+    /*Инициализация счетчика spincrement*/
+
+    /*  jQuery(".statistics-item__number").spincrement({
+     thousandSeparator: "",
+     duration: 1300
+     });
+     */
+
+    function funcAdd() {
+        var scrollTop = jQuery(window).scrollTop();
+        if (scrollTop >= mainPoint + 950) {
+            jQuery(".statistics-item__number").spincrement({
+                thousandSeparator: "",
+                duration: 1300
+            });
+            window.removeEventListener('scroll', funcAdd);
+        }
+    }
+
+    window.addEventListener('scroll', funcAdd);
+
+
+    /*jQuery(window).one("scroll", function () {
+     var scrollTop = jQuery(window).scrollTop();
+
+     /!*  bodyHeight = jQuery('body').outerHeight(),
+     height = winPos + bodyHeight;*!/
+
+     /!*  var scrollBottom = jQuery(window).scrollTop() + jQuery(window).height();
+     console.log(scrollBottom);*!/
+
+     if (scrollTop >= mainPoint + 1200) {
+     jQuery(".statistics-item__number").spincrement({
+     thousandSeparator: "",
+     duration: 1300
+     });
+     /!*   jQuery(window).off('scroll');*!/
+     }
+     });*/
+
 
     /*Подгрузка контента страницы в зависимости от города*/
 
     /*  var target = document.querySelector('.target');
      jQuery(".text_block").appendChild(target);*/
-
 
     /*
      function loadContent() {

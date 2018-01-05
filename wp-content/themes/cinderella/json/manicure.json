@@ -1,0 +1,73 @@
+[
+  {
+    "name": "Классический",
+    "price": "от 350 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "30 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/manicure_01.jpg",
+    "link" : "#"
+  },
+
+  {
+    "name": "Европейский",
+    "price": "от 450 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_02.png",
+    "link" : "#"
+  },
+
+  {
+    "name": "Комбинированный",
+    "price": "от 450 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "40 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/manicure_03.jpg",
+    "link" : "#"
+  },
+
+  {
+    "name": "Аппаратный",
+    "price": "от 600 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/manicure_04.jpg",
+    "link" : "#"
+  },
+
+  {
+    "name": "Бразильский",
+    "price": "от 800 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/manicure_05.jpg",
+    "link" : "#"
+  },
+
+  {
+    "name": "Японский P.Shine",
+    "price": "от 1999 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/manicure_06.jpg",
+    "link" : "#"
+  },
+
+  {
+    "name": "Детский",
+    "price": "от 1999 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/manicure_07.jpg",
+    "link" : "#"
+  },
+
+  {
+    "name": "Мужской",
+    "price": "от 1999 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/manicure_08.jpg",
+    "link" : "#"
+  }
+]

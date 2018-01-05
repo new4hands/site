@@ -1,0 +1,16 @@
+
+[
+
+  {
+    "city": "Томск",
+    "type": "Салон",
+    "name": "На Фрунзе",
+    "Address": "ул.Фрунзе, 40",
+    "Time" : "10.00-20.00",
+    "Number": "+79673219870",
+    "description": "Телефон по вопросам качества обслуживания +7 (913) 869 80 60",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  }
+
+]

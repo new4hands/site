@@ -1,0 +1,15 @@
+[
+
+  {
+    "city": "Барнаул",
+    "type": "Салон",
+    "name": "На Ленина",
+    "Address": "Проспект Ленина,78",
+    "Time" : "9.00-21.00",
+    "Number": "+7(3852)581062",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  }
+
+]

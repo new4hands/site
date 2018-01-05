@@ -1,0 +1,42 @@
+
+[
+
+  {
+    "city": "Севастополь",
+    "type": "Маникюрная стойка",
+    "name": "ТРЦ Муссон",
+    "Address": "ул.Вакуленчука, 29, ТРЦ Муссон",
+    "Time" : "10.00-20.00",
+    "Number": "+79785510101",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+
+  {
+    "city": "Севастополь",
+    "type": "Салон",
+    "name": "ТЦ NOVUS",
+    "Address": "пр.Октябрьской революции, 24, ТЦ NOVUS",
+    "Time" : "10.00-22.00",
+    "Number": "+7(499)3751313",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+
+  {
+    "city": "Севастополь",
+    "type": "Маникюрная стойка",
+    "name": "ТЦ Sea Mall",
+    "Address": "ул. Проспект Генерала Острякова, д.260, ТЦ 'Sea Mall', 2 этаж",
+    "Time" : "10.00-22.00",
+    "Number": "+79785530101",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  }
+
+]

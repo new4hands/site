@@ -1,0 +1,29 @@
+
+[
+
+  {
+    "city": "Санкт-Петербург",
+    "type": "Салон",
+    "name": "На проспекте Медиков",
+    "Time" : "10.00-22.00",
+    "Number": "+7(812)9602682",
+    "Address": "проспект Медиков, 10 к.1",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+
+  {
+    "city": "Санкт-Петербург",
+    "type": "Салон",
+    "name": "На Владимирском",
+    "Time" : "9.00-22.00",
+    "Number": "+7(812)9845762",
+    "Address": "Владимирский проспект, 16",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  }
+
+]

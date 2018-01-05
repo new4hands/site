@@ -1,0 +1,99 @@
+[
+
+  {
+    "name": "Классический",
+    "price": "от 1200 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "30 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/pedicure_01.jpg",
+    "link" : "#"
+  },
+
+  {
+    "name": "Европейский",
+    "price": "от 1450 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/pedicure_02.jpg",
+    "link" : "#"
+  },
+
+  {
+    "name": "Комбинированный",
+    "price": "от 1450 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "40 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/pedicure_03.jpg",
+    "link" : "#"
+  },
+
+  {
+    "name": "Аппаратный",
+    "price": "от 1600 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/pedicure_04.jpg",
+    "link" : "#"
+  },
+
+  {
+    "name": "Бразильский",
+    "price": "от 1500 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/pedicure_05.jpg",
+    "link" : "#"
+  },
+
+  {
+    "name": "Частичный",
+    "price": "от 750 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/pedicure.jpg",
+    "link" : "#"
+  },
+
+  {
+    "name": "Мужской",
+    "price": "от 850 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/pedicure_07.jpg",
+    "link" : "#"
+  },
+
+  {
+    "name": "Детский",
+    "price": "от 850 Р",
+    "description": "До 12 лет",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/pedicure_08.jpg",
+    "link" : "#"
+  },
+    {
+    "name": "Удаление натоптыша",
+    "price": "от 150 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/pedicure_09.jpg",
+    "link" : "#"
+  },
+    {
+    "name": "Коррекция вросшего ногтя",
+    "price": "от 850 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/pedicure_10.jpg",
+    "link" : "#"
+  },
+
+  {
+    "name": "Окклюзионная повязка",
+    "price": "от 600 Р",
+    "description": "До 12 лет lorum ipsum",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/pedicure.jpg",
+    "link" : "#"
+  }
+]

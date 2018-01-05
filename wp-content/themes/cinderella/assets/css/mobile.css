@@ -19,6 +19,7 @@
     .header_socials{
         margin: 0 0 0 25px;
     }
+    }
 
     #wrapper{
         padding-bottom: 0 !important;
@@ -40,9 +41,9 @@
 	    padding: 0 5px;
     }
 
-    .top_nav .top_nav_wrapper > ul > li, .top_nav .main_menu_nav > ul > li{
+   /* .top_nav .top_nav_wrapper > ul > li, .top_nav .main_menu_nav > ul > li{
         padding: 0 12px;
-    }
+    }*/
 
     .top_nav .top_nav_wrapper > ul > li:before, .top_nav .main_menu_nav > ul > li:before{
         left: -12px;
@@ -65,7 +66,7 @@
     }
 
     .top_nav .icon_text{
-        padding-left: 40px;
+        padding-left: 0;
     }
 }
 
@@ -141,17 +142,17 @@
 
     .mobile_header .logo_wrapper{
         position: relative;
-        background: #fff;
-        padding: 30px 23px;
+        background: #fbf6f4;
+        padding: 28px 23px;
     }
 
-    .mobile_header .logo_wrapper .logo{
+    .mobile_header .logo_wrapper .logo {
         float: left;
     }
 
     .mobile_header .header_info{
         background: #c41d54;
-        padding: 0 28px;
+        padding: 0 18px;
     }
 
     .mobile_header .icon_texts{
@@ -163,7 +164,6 @@
         color: #fff;
         display: inline-block;
         vertical-align: top;
-        margin-right: 50px;
     }
 
     .icon_text .icon{
@@ -546,7 +546,7 @@
 
     .mobile_header .header_info .icon_text{
         display: block;
-        margin: 0 0 17px;
+       /* margin: 0 0 17px;*/
     }
 
     .project_grid .project{

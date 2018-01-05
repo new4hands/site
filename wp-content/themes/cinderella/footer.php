@@ -7,14 +7,14 @@
     <div class="footer-wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-sm-12 col-md-3 col-lg-3">
                     <div class="logo-footer">
                         <a class="logo-footer__link" href="#"><img
                                 src="http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/logo_big.png"
                                 alt="4hands"></a>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-sm-12 col-md-9 col-lg-6">
                     <div class="footer-info">
                         <div class="footer-contacts__container clearfix">
                             <div class="footer-contacts footer-contacts_phone">
@@ -43,12 +43,12 @@
                         </div>
 
                         <div class="footer-info__4hands">
-                            <span class="footer-info__text">2015-2017 &#169 Студия Экспресс-Маникюра</span>
+                            <span class="footer-info__text">&#169 ООО "ЭКСПРЕСС" ВСЕ ПРАВА ЗАЩИЩЕНЫ 2017</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-sm-12 col-lg-3">
                     <div class="social social_footer">
                         <div class="social__footer-block clearfix">
 
@@ -88,5 +88,7 @@ if (is_stm() && !$wp_customize) {
 ?>
 </div> <!--#wrapper-->
 <?php wp_footer(); ?>
+<script type="text/javascript" src="//w12204.yclients.com/widgetJS" charset="UTF-8"></script>
+<!--  <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script> -->
 </body>
 </html>

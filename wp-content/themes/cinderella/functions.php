@@ -82,9 +82,9 @@ if ( ! function_exists( 'stm_theme_setup' ) ) {
 
 if ( ! function_exists( '_wp_render_title_tag' ) ) {
 	function theme_slug_render_title() {
-?>
-<title><?php wp_title( '|', true, 'right' ); ?></title>
-<?php
+		?>
+		<title><?php wp_title( '|', true, 'right' ); ?></title>
+		<?php
 	}
 	add_action( 'wp_head', 'theme_slug_render_title' );
 }
@@ -120,40 +120,35 @@ function stm_body_class( $classes ) {
 	return $classes;
 }
 
-
-
 add_action( 'wp_footer', 'b5f_on_load_script' );
 
 function b5f_on_load_script()
 {
     // Not our page, do nothing
-    if ( is_page( 'services' ) ) {
-     ?>
- <script src="http://new.4hands.ru/wp-content/themes/cinderella/js/services.js"></script>
-    <?php 
-    } else {
-     ?>
- <script src="http://new.4hands.ru/wp-content/themes/cinderella/js/main.js"></script>
-    <?php 
-    }
-    
+	if ( is_page( 'services' ) ) {
+		?>
+		<script src="http://new.4hands.ru/wp-content/themes/cinderella/js/choose_city.js"></script>
+		<script src="http://new.4hands.ru/wp-content/themes/cinderella/js/services.js"></script>
+        
+		<?php
+	}
+
+	if ( is_page( 'index' ) ) {
+		?>
+	    <script src="http://new.4hands.ru/wp-content/themes/cinderella/js/choose_city.js"></script>
+		<script src="http://new.4hands.ru/wp-content/themes/cinderella/js/main.js"></script>
+		<script src="http://new.4hands.ru/wp-content/themes/cinderella/js/map.js"></script>
+		<?php
+	}
+	if ( is_page( 'studios' ) ) {
+		?>
+        <script src="http://new.4hands.ru/wp-content/themes/cinderella/js/choose_city_studios.js"></script>
+		<script src="http://new.4hands.ru/wp-content/themes/cinderella/js/studios.js"></script>
+		<?php
+	}
 };
 
 add_action( 'wp_footer', 'b5f_on_load_script' );
-
-
-/*function b6f_on_load_script()
-{
-    // Not our page, do nothing
-    if( !is_page( 'services' ) )
-        ?>
- <script src="http://new.4hands.ru/wp-content/themes/cinderella/js/main.js"></script>
-   <?php     
-    return;
-        
-};*/
-
-
 
 add_filter( 'body_class', 'stm_body_class' );
 

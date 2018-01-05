@@ -2,7 +2,7 @@
 
   {
     "name": "Классический",
-    "price": "500 Р",
+    "price": "от 350 Р",
     "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
     "time" : "30 Минут",
     "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_01.png",
@@ -10,8 +10,8 @@
   },
 
   {
-    "name": "Аппаратный",
-    "price": "1999 Р",
+    "name": "Европейский",
+    "price": "от 450 Р",
     "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
     "time" : "50 Минут",
     "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_02.png",
@@ -19,8 +19,8 @@
   },
 
   {
-    "name": "Аппаратный",
-    "price": "3000 Р",
+    "name": "Комбинированный",
+    "price": "от 450 Р",
     "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
     "time" : "40 Минут",
     "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_01.png",
@@ -29,16 +29,7 @@
 
   {
     "name": "Аппаратный",
-    "price": "600 Р",
-    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
-    "time" : "20 Минут",
-    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_01.png",
-    "link" : "#"
-  },
-
-  {
-    "name": "Аппаратный",
-    "price": "1999 Р",
+    "price": "от 600 Р",
     "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
     "time" : "50 Минут",
     "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_01.png",
@@ -46,12 +37,38 @@
   },
 
   {
-    "name": "Аппаратный",
-    "price": "1999 Р",
+    "name": "Бразильский",
+    "price": "от 800 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_01.png",
+    "link" : "#"
+  },
+
+  {
+    "name": "Японский P.Shine",
+    "price": "от 1999 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_01.png",
+    "link" : "#"
+  },
+
+  {
+    "name": "Детский",
+    "price": "от 1999 Р",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_01.png",
+    "link" : "#"
+  },
+
+  {
+    "name": "Мужской",
+    "price": "от 1999 Р",
     "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
     "time" : "50 Минут",
     "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/service-item_01.png",
     "link" : "#"
   }
-
 ]

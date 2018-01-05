@@ -1,0 +1,15 @@
+[
+
+  {
+    "city": "Владивосток",
+    "type": "Салон",
+    "name": "На Краснознаменном",
+    "Address": "Краснознаменный переулок, 4",
+    "Time" : "9.00-21.00",
+    "Number": "+74232025101",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  }
+
+]

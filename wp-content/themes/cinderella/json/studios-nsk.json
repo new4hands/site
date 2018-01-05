@@ -1,0 +1,226 @@
+[
+
+  {
+    "city": "Новосибирск",
+    "type": "Салон",
+    "Address": "ул.Выборная, 122, 3 этаж",
+    "name": "На Выборной",
+    "Time" : "9.00-21.00",
+    "Number": "+7(383)2395795",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/nsk-viborn.jpg",
+    "link" : "#"
+  },
+
+  {
+    "city": "Новосибирск",
+    "type": "Маникюрная стойка",
+    "Address": "ул.Кутателадзе, 4, ТЦ Эдем",
+    "name": "В TЦ Эдэм",
+    "Time" : "10.00-22.00",
+    "Number": "+79833074013",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/nsk-edem.jpg",
+    "link" : "#"
+  },
+
+  {
+    "city": "Новосибирск",
+    "type": "Салон",
+    "Address": "ул. 1905 года, 69",
+    "name": "на 1905 года",
+    "Time" : "10.00-22.00",
+    "Number": "+7(913)010-42-97",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/nsk-1905.jpg",
+    "link" : "#"
+  },
+
+  {
+    "city": "Новосибирск",
+    "type": "Салон",
+    "Address": "ул. Забалуева 51а, ТЦ 'Слобода', 2 этаж",
+    "name": "В TЦ Слобода",
+    "Time" : "10.00-22.00",
+    "Number": "+7(383)381-67-33",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/nsk-sloboda.jpg",
+    "link" : "#"
+  },
+
+  {
+    "city": "Новосибирск",
+    "type": "Бьюти-зона",
+    "Address": "Фрунзе, 238, ТРЦ 'Сибирский молл'",
+    "name": "В Сибирском Молле",
+    "Time" : "10.00-22.00",
+    "Number": "+79231247924",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/nsk-mall.jpg",
+    "link" : "#"
+  },
+
+  {
+    "city": "Новосибирск",
+    "type": "Салон",
+    "Address": "Военная, 5, ТРЦ 'Аура' 1 этаж",
+    "name": "В TРЦ Аура",
+    "Time" : "10.00-22.00",
+    "Number": "89835107368",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/nsk-aura.jpg",
+    "link" : "#"
+  },
+
+  {
+    "city": "Новосибирск",
+    "type": "Салон",
+    "Address": "Геодезическая, 4",
+    "name": "На Геодезической",
+    "Time" : "9.00-21.00",
+    "Number": "+7(383)2138188",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : "#"
+  },
+
+  {
+    "city": "Новосибирск",
+    "type": "Салон",
+    "name": "На Ядринцевской",
+    "Address": "Ядринцевская, 35",
+    "Time" : "9.00-21.00",
+    "Number": "+7(383)2187560",
+    "description": "Телефон по вопросам качества обслуживания +7 (913) 742 47 17",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : "#"
+  },
+
+  {
+    "city": "Новосибирск",
+    "type": "Бьюти-зона + Салон",
+    "Address": "Красный проспект, 101, ТРЦ 'Ройял парк' 2 этаж",
+    "name": "TРЦ Ройял парк",
+    "Time" : "10.00-22.00",
+    "Number": "+79139155244",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : "#"
+  },
+
+  {
+    "city": "Новосибирск",
+    "type": "Салон",
+    "Address": "Красный проспект, 74",
+    "name": "На Красном 74",
+    "Time" : "9.00-21.00",
+    "Number": "+7(383)2863112",
+    "description": "Телефон по вопросам качества обслуживания +7(905)956-85-23",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : "#"
+  },
+
+
+  {
+    "city": "Новосибирск",
+    "type": "Маникюрная стойка",
+    "Address": "Курчатова, 1, ТРК Голден парк, 2 этаж",
+    "name": "В ТРК Голден парк",
+    "Time" : "10.00-22.00",
+    "Number": "+79137139234",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : "#"
+  },
+
+
+  {
+    "city": "Новосибирск",
+    "type": "Маникюрная стойка",
+    "Address": "ул. Троллейная, 130а, ТРЦ 'Континент'",
+    "name": "В TРЦ Континент",
+    "Time" : "10.00-22.00",
+    "Number": "+7(383)3106934",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : "#"
+  },
+
+
+  {
+    "city": "Новосибирск",
+    "type": "Салон",
+    "Address": "ул. Богдана Хмельницкого,14",
+    "name": "На Богдана Хмельницкого",
+    "Time" : "9.00-22.00",
+    "Number": "+79139159555",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : "#"
+  },
+
+
+  {
+    "city": "Новосибирск",
+    "type": "Кабинет",
+    "Address": "Фрунзе, 5, оф. 217/2",
+    "name": "На Фрунзе",
+    "Time" : "10.00-20.00",
+    "Number": "+79232229692",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : "#"
+  },
+
+
+  {
+    "city": "Новосибирск",
+    "type": "Салон",
+    "Address": "ул.Высоцкого 39/5",
+    "name": "На Высоцкого",
+    "Time" : "10.00-22.00",
+    "Number": "+7(383)2148444",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : "#"
+  },
+
+  {
+    "city": "Новосибирск",
+    "type": "Маникюрная стойка",
+    "Address": "ул.Ленина, 6/1, ТЦ Астор",
+    "name": "В TЦ Астор",
+    "Time" : "10.00-21.00",
+    "Number": "+7(383)2052905",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : "#"
+  },
+
+
+  {
+    "city": "Новосибирск",
+    "type": "Салон",
+    "Address": "ул.Титова, 17",
+    "name": "На Титова",
+    "Time" : "9.00-21.00",
+    "Number": "+7(383)2991229",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : "#"
+  },
+
+
+  {
+    "city": "Новосибирск",
+    "type": "Учебный центр",
+    "Address": "Гоголя, 51",
+    "name": "На Гоголя",
+    "Time" : "9.00-20.00",
+    "Number": "+7(383)286-72-92",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : "#"
+  }
+
+]

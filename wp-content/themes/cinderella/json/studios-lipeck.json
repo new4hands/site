@@ -1,0 +1,27 @@
+[
+
+  {
+    "city": "Липецк",
+    "type": "Салон",
+    "name": "ТРЦ Ривьера",
+    "Address": "ул.Катукова 51 ТРЦ Ривьера, 2 этаж",
+    "Time" : "10.00-22.00",
+    "Number": "+79005926767",
+    "description": "7 929-012-27-27 по вопросам качества обслуживания",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Липецк",
+    "type": "Салон",
+    "name": "ТРЦ Европа",
+    "Address": "ул.Советкая, 66, ТРЦ Европа",
+    "Time" : "10.00-22.00",
+    "Number": "+79005917373",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  }
+
+]

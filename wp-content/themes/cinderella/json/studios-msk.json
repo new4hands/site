@@ -1,0 +1,175 @@
+
+[
+
+  {
+    "city": "Москва",
+    "type": "Салон",
+    "name": "На Менжинского",
+    "Address": "ул.Менжинского, 32 к.3",
+    "Time": "10.00 - 22.00",
+    "Number": "+79295005020",
+    "description": "Телефон качества обслуживания 7-925-535-72-72",
+     "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : "https://"
+  },
+
+
+  {
+    "city": "Москва",
+    "type": "Салон",
+    "name": "ТРЦ Афимолл Сити",
+    "Address": "Пресненская наб. 2, ТРЦ Афимолл Сити ",
+    "Time" : "10.00-22.00",
+    "Number": "+79197284344",
+    "description": "Телефон качества обслуживания 7-923-243-60-43",
+     "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Москва",
+    "type": "Салон",
+    "name": "На Митинской",
+    "Address": "ул. Митинская, 36с1, ТЦ Ковчег, 1 этаж",
+    "Time" : "10.00-22.00",
+    "Number": "+7(495)2944004",
+    "description": "Телефон качества обслуживания 7-916-651-71-75",
+   "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Москва",
+    "type": "Салон",
+    "name": "На Андропова",
+    "Address": "Андропова пр-т, 22, ДТРЦ 'Нора', 3 этаж",
+    "Time" : "10.00-22.00",
+    "Number": "+79978771800",
+    "description": "",
+   "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Москва",
+    "type": "Салон",
+    "name": "На Сущевской",
+    "Address": "ул. Сущевская 13-15",
+    "Time" : "10.00-21.00",
+    "Number": "+79197284344",
+    "description": "",
+   "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Москва",
+    "type": "Салон",
+    "name": "На Рождественской",
+    "Address": "ул. Рождественская, 31",
+    "Time" : "9.00-22.00",
+    "Number": "+7(495)7685008",
+    "description": "",
+   "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Москва",
+    "type": "Маникюрная стойка",
+    "name": "На Таганской",
+    "Address": "ул.Таганская,1 с.1 ТЦ Звездочка, 1 этаж",
+    "Time" : "10.00-22.00",
+    "Number": "+7(499)3751313",
+    "description": "",
+   "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Москва",
+    "type": "Салон",
+    "name": "ТЦ Ривьера",
+    "Address": "ул. Автозаводская, 18 ТЦ Ривьера",
+    "Time" : "10.00-22.00",
+    "Number": "+79265868111",
+    "description": "Телефон качества обслуживания 7-926-472-65-39",
+   "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Москва",
+    "type": "Салон",
+    "name": "ТЦ Авиапарк",
+    "Address": "Ходынский бульвар, 4 ТЦ Авиапарк",
+    "Time" : "10.00-22.00",
+    "Number": "+79688282444",
+    "description": "Телефон качества обслуживания +7(925) 188 88 57 График работы: Воскресенье - четверг с 10.00 до 22.00, пятница-суббота с 10.00 до 23.00",
+   "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Москва",
+    "type": "Салон",
+    "name": "ТРЦ Золотой Вавилон Ростокино",
+    "Address": "пр.Мира, 211, к.2, ТРЦ Золотой Вавилон Ростокино, 1 этаж",
+    "Time" : "10.00-22.00",
+    "Number": "+79295003030",
+    "description": "",
+   "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Москва",
+    "type": "Салон",
+    "name": "ТЦ Капитолий",
+    "Address": "Севастопольский пр., 11Е, ТЦ Капитолий, 3 этаж",
+    "Time" : "10.00-22.00",
+    "Number": "+7(499)2703886",
+    "description": "",
+   "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Москва",
+    "type": "Салон",
+    "name": "На Кузнецова",
+    "Address": "ул.Генерала Кузнецова, 11 к. 1",
+    "Time" : "9.00-22.00",
+    "Number": "+7(495)7065006",
+    "description": "",
+   "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Москва",
+    "type": "Салон",
+    "name": "ТЦ Кунцево-Плаза",
+    "Address": "ул. Ярцевская, 19, ТЦ 'Кунцево-Плаза'",
+    "Time" : "9.00-22.00",
+    "Number": "+79854274870",
+    "description": "",
+   "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Москва",
+    "type": "Салон",
+    "name": "ТЦ Акварель",
+    "Address": "",
+    "Time" : "10.00-22.00",
+    "Number": "+7(495)762-78-08",
+    "description": "",
+   "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  }
+
+  
+]
+

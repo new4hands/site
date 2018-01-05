@@ -1,0 +1,15 @@
+[
+
+  {
+    "city": "Воронеж",
+    "type": "Кабинет",
+    "name": "На Хользунова",
+    "Address": "ул. Хользунова, д. 35",
+    "Time" : "9.00-21.00",
+    "Number": "+79521074848",
+    "description": "Телефон качества обслуживания 7-903-650-34-80",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  }
+
+]

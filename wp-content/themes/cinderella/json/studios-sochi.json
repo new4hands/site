@@ -1,0 +1,51 @@
+[
+
+  {
+    "city": "Сочи",
+    "type": "Кабинет",
+    "name": "Олимпийский парк",
+    "Address": "ул.Бульвар Надежд, 22 (Олимпийский парк)",
+    "Time" : "10.00-20.00",
+    "Number": "+79673219870",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Сочи",
+    "type": "Салон",
+    "name": "На Приморской",
+    "Address": "ул.Приморская, 15а, Приморский пляж",
+    "Time" : "9.00-22.00",
+    "Number": "+79186057755",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Сочи",
+    "type": "Салон",
+    "name": "ТЦ Атриум",
+    "Address": "ул. Навагинская, 9д, ТЦ Атриум",
+    "Time" : "9.00-22.00",
+    "Number": "+79182057755",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  },
+
+  {
+    "city": "Сочи",
+    "type": "Салон",
+    "name": "На проспекте Медиков",
+    "Address": "проспект Медиков, 10 к.1",
+    "Time" : "10.00-21.00",
+    "Number": "+79180934433",
+    "description": "",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/default-salon.jpg",
+    "link" : ""
+  }
+
+]
