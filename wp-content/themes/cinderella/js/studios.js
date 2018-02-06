@@ -4,10 +4,32 @@
 
 jQuery(document).ready(function () {
 
+    /*    Блок Карта Slidedown*/
+
+    jQuery(".studios__slide").bind('click', function () {
+        if (jQuery("div").is(".up")) {
+            jQuery(".chosen-studio").fadeOut(50);
+            jQuery(".studios-info_map").delay(70).animate({"height": "105px", "margin-top": "470px"}, 220)
+                .animate({"height": "560px", "margin-top": "0px"}, "250", function () {
+                    jQuery(".studios-info").delay(50).fadeIn("slow");
+                    jQuery(".studios-salon_small").delay(170).fadeIn("slow");
+                });
+            jQuery(this).removeClass("up").addClass("down");
+        } else {
+            jQuery(".studios-info").fadeOut(50);
+            jQuery(".studios-salon_small").fadeOut(50);
+            jQuery(".studios-info_map").delay(70).animate({"height": "105px", "margin-top": "470px"}, 220)
+                .animate({"height": "140px", "margin-top": "450px"}, "250", function () {
+                    jQuery(".chosen-studio").fadeIn(300);
+                });
+            jQuery(this).addClass("up").removeClass("down");
+        }
+    });
+
     var сhosenCityText,
         apps = {},
         cityMass = ["Новосибирск", "Москва", "Санкт-Петербург", "Сочи", "Томск", "Норильск", "Барнаул",
-        "Старый Оскол", "Владивосток", "Севастополь", "Казань", "Липецк", "Ялта", "Воронеж"],
+            "Старый Оскол", "Владивосток", "Севастополь", "Казань", "Липецк", "Ялта", "Воронеж"],
         studiosList = document.querySelector(".studios-list");
 
 
@@ -28,6 +50,12 @@ jQuery(document).ready(function () {
         }
     });
 
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            console.log('Позиция пользователя: ' +
+                position.coords.latitude + ", " + position.coords.longitude);
+        }
+    );
 
     /*Определение текущего города:*/
 
@@ -36,22 +64,33 @@ jQuery(document).ready(function () {
     function init() {
         ymaps.geolocation.get({
             provider: 'yandex',
-            autoReverseGeocode: true
         }).then(function (result) {
-            currentCity = result.geoObjects.get(0).properties.get('metaDataProperty.GeocoderMetaData.AddressDetails.Country.AddressLine');
-             jQuery(".current-city__item").html(currentCity);
-             jQuery(".studios__current-city").html(currentCity);
 
-             defineCity();
+            var retObj = JSON.parse(localStorage.getItem("object"));
+            if ( retObj.city) {
+                console.log(retObj.city);
+                jQuery(".current-city__item").html(retObj.city);
+                jQuery(".studios__current-city").html(retObj.city);
+
+            } else {
+                 currentCity = result.geoObjects.get(0).properties.get('metaDataProperty.GeocoderMetaData.AddressDetails.Country.AddressLine');
+                 jQuery(".current-city__item").html(currentCity);
+                 jQuery(".studios__current-city").html(currentCity);
+
+                var city;
+                var obj = { city: currentCity };
+                var sObj = JSON.stringify(obj)
+                localStorage.setItem("object", sObj);
+            }
+
+            defineCity();
         });
     }
-
 
     jQuery(".city__item").bind("click", function () {
         jQuery(".studios-list").empty();
         defineCity();
     });
-
 
     function defineCity() {
         var xhr = new XMLHttpRequest();
@@ -59,6 +98,13 @@ jQuery(document).ready(function () {
 
         if (currentCityItem === cityMass[0]) {
             jQuery(".studios__current-city").html(сhosenCityText);
+
+            var city;
+            var obj = { city: сhosenCityText };
+            var sObj = JSON.stringify(obj)
+            localStorage.setItem("object", sObj);
+            console.log(city);
+
             xhr.open("GET", "/wp-content/themes/cinderella/json/studios-nsk.json", true);
         }
 
@@ -139,7 +185,10 @@ jQuery(document).ready(function () {
             for (var i = 0; i < li; i++) {
                 setInterval(insertBlock(i, apps), 5000);
             }
-            jQuery(".search-studios__digit").html("  " + apps.length + " ");
+            jQuery(".search-studios__digit").html(apps.length)
+                .spincrement({
+                    duration: 950
+                });
         };
     }
 
@@ -159,19 +208,9 @@ jQuery(document).ready(function () {
             block_link.classList.add("studios-item__link");
             block_link.href = apps[i].link;
 
-            var blockItemimg = block_link.appendChild(document.createElement("div"));
-            blockItemimg.classList.add("studios-item__image");
-
-            var block_img = blockItemimg.appendChild(document.createElement("img"));
-            block_img.src = apps[i].image_path;
-
             var blockInfoblock = block.appendChild(document.createElement("div"));
             blockInfoblock.classList.add("studios-item__info-block");
             blockInfoblock.classList.add("clearfix");
-
-            var block_type = blockInfoblock.appendChild(document.createElement("div"));
-            block_type.classList.add("studios-item__type");
-            block_type.innerHTML = apps[i].type;
 
             /* var block_distance = blockInfoblock.appendChild(document.createElement("div"));
              block_distance.classList.add("studios-item__distance");
@@ -180,6 +219,22 @@ jQuery(document).ready(function () {
             var block_name = blockInfoblock.appendChild(document.createElement("div"));
             block_name.classList.add("studios-item__name");
             block_name.innerHTML = apps[i].name;
+
+            var block_type = blockInfoblock.appendChild(document.createElement("div"));
+            block_type.classList.add("studios-item__type");
+            block_type.innerHTML = apps[i].type;
+
+            var block_time = blockInfoblock.appendChild(document.createElement("span"));
+            block_time.classList.add("studios-item__time");
+            block_time.innerHTML = apps[i].Time;
+
+            var block_phone = blockInfoblock.appendChild(document.createElement("span"));
+            block_phone.classList.add("studios-item__phone");
+            block_phone.innerHTML = apps[i].Number;
+
+            var block_address = blockInfoblock.appendChild(document.createElement("address"));
+            block_address.classList.add("studios-item__address");
+            block_address.innerHTML = apps[i].Address;
 
             var block_btn = blockInfoblock.appendChild(document.createElement("a"));
             block_btn.classList.add("studios-item__btn");
@@ -193,33 +248,18 @@ jQuery(document).ready(function () {
             var block_details = block.appendChild(document.createElement("div"));
             block_details.classList.add("studios-item__details");
 
-            var block_time = block_details.appendChild(document.createElement("div"));
-            block_time.classList.add("studios-item__time");
-            block_time.innerHTML = apps[i].Time;
 
-            var block_phone = block_details.appendChild(document.createElement("div"));
-            block_phone.classList.add("studios-item__phone");
-            block_phone.innerHTML = apps[i].Number;
         }
 
         jQuery(".studios-item__wrapper").each(function (index) {
-            jQuery(this).delay(137 * index).animate({'opacity': 1}, 400);
+            jQuery(this).delay(137 * index).show()
+                .css({"display": "inline-block", "vertical-align": "top"})
+                .animate({'opacity': 1}, 400);
             jQuery(".studios-item__image").animate({width: 350}, 350).animate({height: 253}, 400);
         });
 
         showDescription();
     }
-
-
-    jQuery(".search__input").focus(function () {
-        jQuery(this).closest(".search").delay(70).animate({width: "60%"}, 350);
-    });
-
-
-    jQuery(".search__input").focusout(function () {
-        jQuery(this).closest(".search").delay(70).animate({width: "35%"}, 350);
-    });
-
 
     function showDescription() {
 

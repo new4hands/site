@@ -1,19 +1,25 @@
 <?php
 /*
  * Plugin Name: Instagram Gallery
- * Description: Display pictures on your website from Instagram.
+ * Description: Display Gallery on the website from Instagram.
  * Author: Karan Singh
  * Author URI: https://www.karansingh.ml/
+ * Requires at least: 3.8
+ * Tested up to: 4.9
  * Text Domain: insta-gallery
- * Version: 1.4.6
+ * Domain Path: /languages/
+ * Version: 1.5.4
  */
+if (! defined('ABSPATH')) {
+    exit(); // Exit if accessed directly.
+}
 
 // plugin global constants
-define('INSGALLERY_VER', '1.4.6');
+define('INSGALLERY_VER', '1.5.4');
 define('INSGALLERY_PATH', plugin_dir_path(__FILE__));
 define('INSGALLERY_URL', plugins_url('', __FILE__));
+define('INSGALLERY_PLUGIN_DIR', plugin_basename(dirname(__FILE__)));
 
-// define('INSGALLERY_PLUGIN_DIR', plugin_basename(dirname(__FILE__)));
 // define('INSGALLERY_DEBUG', false);
 class INSGALLERY
 {
@@ -47,11 +53,18 @@ class INSGALLERY
         ));
         
         include_once (INSGALLERY_PATH . 'app/wp-front.php');
+        include_once (INSGALLERY_PATH . 'app/wp-widget.php');
         
         // save ig adv. setting
         add_action('wp_ajax_save_igadvs', array(
             $this,
             'save_igadvs'
+        ));
+        
+        // load Translations
+        add_action('plugins_loaded', array(
+            $this,
+            'load_translations_instagal'
         ));
     }
 
@@ -63,25 +76,26 @@ class INSGALLERY
 
     public function save_igadvs()
     {
-        if (! isset($_POST['igadvs_nonce']) || ! wp_verify_nonce( $_POST['igadvs_nonce'], 'igadvs_nonce_key')) {
-            exit(json_encode(array('igsuccess'=>true,'message'=>'Invalid Request.')));
+        if (! isset($_POST['igadvs_nonce']) || ! wp_verify_nonce($_POST['igadvs_nonce'], 'igadvs_nonce_key')) {
+            wp_send_json_error('Invalid Request.');
         }
-        $igs_spinner = '';
-        $igs_flush = (isset($_POST['igs-flush']) && $_POST['igs-flush']) ? true : false;
-        if(!empty($_POST['igs-spinner'])){
-            $igs_spinner = $_POST['igs-spinner'];
-            if (! filter_var($igs_spinner, FILTER_VALIDATE_URL)) {
-                exit(json_encode(array('igsuccess'=>true,'message'=>'Invalid Spinner URL.')));
-            }            
+        $igs_spinner_image_id = '';
+        $igs_flush = (isset($_POST['igs_flush']) && $_POST['igs_flush']) ? true : false;
+        if (! empty($_POST['igs_spinner_image_id'])) {
+            $igs_spinner_image_id = (int) $_POST['igs_spinner_image_id'];
         }
         $insta_gallery_setting = array(
-            'igs_spinner' => $igs_spinner,
             'igs_flush' => $igs_flush,
+            'igs_spinner_image_id' => $igs_spinner_image_id
         );
         update_option('insta_gallery_setting', $insta_gallery_setting);
-        $reponse = array('igsuccess'=>true,'message'=> 'setting updated successfully');
-        echo json_encode($reponse);
-        exit();
+        
+        wp_send_json_success(__('settings updated successfully', 'insta-gallery'));
+    }
+
+    function load_translations_instagal()
+    {
+        load_plugin_textdomain('insta-gallery', false, INSGALLERY_PLUGIN_DIR . '/languages/');
     }
 
     function load_admin_scripts($hook)
@@ -90,12 +104,15 @@ class INSGALLERY
         if ($hook != 'settings_page_insta_gallery') {
             return;
         }
-        wp_enqueue_style('insta-gallery-admin', INSGALLERY_URL . '/assets/admin-style.css');
+        wp_enqueue_style('insta-gallery-admin', INSGALLERY_URL . '/assets/admin-style.css', array(), INSGALLERY_VER);
+        
+        // Enqueue WordPress media scripts
+        wp_enqueue_media();
     }
 
     function loadMenus()
     {
-        add_options_page('Instagram Gallery', 'Instagram Gallery', 'manage_options', 'insta_gallery', array(
+        add_options_page(__('Instagram Gallery', 'insta-gallery'), __('Instagram Gallery', 'insta-gallery'), 'manage_options', 'insta_gallery', array(
             $this,
             'loadPanel'
         ));
@@ -116,7 +133,7 @@ class INSGALLERY
         if ($plugin == $plugin_file) {
             
             $settings = array(
-                'settings' => '<a href="options-general.php?page=insta_gallery">' . __('Settings', 'General') . '</a>'
+                'settings' => '<a href="options-general.php?page=insta_gallery">' . __('Settings', 'insta-gallery') . '</a>'
             );
             
             $actions = array_merge($settings, $actions);

@@ -125,25 +125,36 @@ add_action( 'wp_footer', 'b5f_on_load_script' );
 function b5f_on_load_script()
 {
     // Not our page, do nothing
-	if ( is_page( 'services' ) ) {
+	if ( is_page( 'manicure' ) || is_page( 'pedicure' ) || is_page( 'coating' ) || is_page( 'men' ) || is_page( 'kids' ) ) {
 		?>
-		<script src="http://new.4hands.ru/wp-content/themes/cinderella/js/choose_city.js"></script>
-		<script src="http://new.4hands.ru/wp-content/themes/cinderella/js/services.js"></script>
-        
+		<script src="https://new.4hands.ru/wp-content/themes/cinderella/js/choose_city.js"></script>
+		<script src="https://new.4hands.ru/wp-content/themes/cinderella/js/services.js"></script>
+
 		<?php
 	}
 
 	if ( is_page( 'index' ) ) {
 		?>
-	    <script src="http://new.4hands.ru/wp-content/themes/cinderella/js/choose_city.js"></script>
-		<script src="http://new.4hands.ru/wp-content/themes/cinderella/js/main.js"></script>
-		<script src="http://new.4hands.ru/wp-content/themes/cinderella/js/map.js"></script>
+		<script src="https://new.4hands.ru/wp-content/themes/cinderella/js/choose_city.js"></script>
+		<script src="https://new.4hands.ru/wp-content/themes/cinderella/js/main.js"></script>
+		<script src="https://new.4hands.ru/wp-content/themes/cinderella/js/map.js"></script>
 		<?php
 	}
+
 	if ( is_page( 'studios' ) ) {
 		?>
-        <script src="http://new.4hands.ru/wp-content/themes/cinderella/js/choose_city_studios.js"></script>
-		<script src="http://new.4hands.ru/wp-content/themes/cinderella/js/studios.js"></script>
+		<script src="https://new.4hands.ru/wp-content/themes/cinderella/js/choose_city_studios.js"></script>
+		<script src="https://new.4hands.ru/wp-content/themes/cinderella/js/jquery.spincrement.js"></script>
+		<script src="https://new.4hands.ru/wp-content/themes/cinderella/js/studios.js"></script>
+		<script src="https://new.4hands.ru/wp-content/themes/cinderella/js/map.js"></script>
+		<?php
+	}
+
+	if ( is_page( 'prices' ) ) {
+		?>
+	
+		<script src="https://new.4hands.ru/wp-content/themes/cinderella/js/prices.js"></script>
+		
 		<?php
 	}
 };

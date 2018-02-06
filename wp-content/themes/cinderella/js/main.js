@@ -17,69 +17,19 @@ jQuery(document).ready(function () {
 
     /*Появление больших меток в вертикальном скроллбаре */
 
-    var identifier,
-        top = 0,
-        headerPoint = top + parseInt(jQuery("#header").offset().top),
-        btnDisapear = top + parseInt(jQuery("#header").offset().top + 280),
-        mainPoint = top + parseInt(jQuery("#main").offset().top),
-        studiosPoint = top + parseInt(jQuery("#studios").offset().top),
-        instPoint = top + parseInt(jQuery("#instagram").offset().top),
-        aboutPoint = top + parseInt(jQuery("#about").offset().top),
-
-        statisticsPoint = top + parseInt(jQuery("#statistics").offset().top),
-        navTopPoint = top + parseInt(jQuery("#header").offset().top + 520);
-
+    var top = 0,
+        navTopPoint = top + parseInt(jQuery("#header").offset().top + 520),
+        headerTextPoint = top + parseInt(jQuery("#header").offset().top + 150);
 
         jQuery(window).bind('scroll', function () {
         var scrolled = jQuery(window).scrollTop();
+            if ((scrolled > headerTextPoint)) {
+               jQuery(".header-content").hide();
+            }
 
-        if ((scrolled >= headerPoint) && (scrolled < mainPoint)) {
-            jQuery('.attached-nav__list li').each(function (index) {
-                jQuery(this).removeClass('active');
-            });
-            jQuery(".attached-nav__item").eq(0).addClass("active");
-            identifier = 1;
-        }
-
-        if ((scrolled >= mainPoint) && (scrolled < studiosPoint)) {
-            jQuery('.attached-nav__list li').each(function (index) {
-                jQuery(this).removeClass('active');
-            });
-            jQuery(".attached-nav__item").eq(1).addClass("active");
-            identifier = 2;
-        }
-
-        if ((scrolled >= studiosPoint) && (scrolled < instPoint)) {
-            jQuery('.attached-nav__list li').each(function (index) {
-                jQuery(this).removeClass('active');
-            });
-            jQuery(".attached-nav__item").eq(2).addClass("active");
-            identifier = 3;
-        }
-
-        if ((scrolled >= instPoint) && (scrolled < aboutPoint)) {
-            jQuery('.attached-nav__list li').each(function (index) {
-                jQuery(this).removeClass('active');
-            });
-            jQuery(".attached-nav__item").eq(3).addClass("active");
-            identifier = 4;
-        }
-
-        if ((scrolled >= aboutPoint)) {
-            jQuery('.attached-nav__list li').each(function (index) {
-                jQuery(this).removeClass('active');
-            });
-            jQuery(".attached-nav__item").eq(4).addClass("active");
-        }
-
-        if (scrolled >= btnDisapear) {
-            jQuery(".entry_big").hide();
-        }
-
-        if (scrolled < btnDisapear) {
-            jQuery(".entry_big").show();
-        }
-
+            if ((scrolled < headerTextPoint)) {
+                jQuery(".header-content").show();
+            }
     });
 
     /*Изменение вида tоp-nav главной страницы*/
@@ -90,7 +40,9 @@ jQuery(document).ready(function () {
         with (jQuery(".page-id-1240")) {
 
             if (scrolled >= navTopPoint) {
+
                 jQuery(".logo__link").removeClass("logo__link_non-active").addClass("logo__link_active");
+                jQuery(".location__icon").removeClass("location__icon_non-active").addClass("location__icon_active");
                 jQuery(".top_nav .top_nav_wrapper").removeClass("top_nav_non-active").addClass("top_nav_active");
                 jQuery(".top_nav_wrapper > ul > li > a").removeClass("top_nav__link_non-active").addClass("top_nav__link_active");
                 jQuery(".top_nav .icon_text strong").removeClass("icon_text_phone_non-active").addClass("icon_text_phone_active");
@@ -103,6 +55,7 @@ jQuery(document).ready(function () {
 
             if (scrolled < navTopPoint) {
                 jQuery(".logo__link").removeClass("logo__link_active").addClass("logo__link_non-active");
+                jQuery(".location__icon").removeClass("location__icon_active").addClass("location__icon_non-active");
                 jQuery(".top_nav .top_nav_wrapper").removeClass("top_nav_active").addClass("top_nav_non-active");
                 jQuery(".top_nav_wrapper > ul > li > a").removeClass("top_nav__link_active").addClass("top_nav__link_non-active");
                 jQuery(".top_nav .icon_text strong").removeClass("icon_text_phone_active").addClass("icon_text_phone_non-active");
@@ -115,30 +68,13 @@ jQuery(document).ready(function () {
         }
     });
 
-    /*Переключение на блок вниз*/
-
-    jQuery(".js-next").bind("click", function () {
-        if (identifier == 1) {
-            jQuery('body,html').animate({scrollTop: mainPoint}, 500);
-        }
-
-        if (identifier == 2) {
-            jQuery('body,html').animate({scrollTop: studiosPoint}, 500);
-        }
-
-        if (identifier == 3) {
-            jQuery('body,html').animate({scrollTop: instPoint}, 500);
-        }
-
-        if (identifier == 4) {
-            jQuery('body,html').animate({scrollTop: aboutPoint}, 500);
-        }
-    });
-
-
     /*Выбор города*/
 
     jQuery(".showf-btn").click(function () {
+        jQuery('.ouibounce-modal_city').fadeIn(400);
+    });
+
+    jQuery(".current-city__item").click(function () {
         jQuery('.ouibounce-modal_city').fadeIn(400);
     });
 
@@ -174,18 +110,7 @@ jQuery(document).ready(function () {
         }
     });
 
-    /*Slider buttons*/
-    setTimeout(function () {
-        jQuery(".ms-container").append("<button class='share-image__button'>Акции</button>").fadeIn(70);
-        jQuery(".master-slider").append("<div class='entry entry_share entry_share_01'><button class='entry__button entry__button_share'>Записаться</button></div>").fadeIn(70);
-    }, 50);
-
-    /* var entryShare_01 = jQuery.create("div");
-     entryShare_01.addClass("entry").addClass("entry_share").addClass("entry_share_01");
-     jQuery(".ms-container").append(shareButton); */
-
-
-  /*  Popup Instagram*/
+  /*  Popup Instagram
 
      jQuery('.ouibounce-modal_instagram').delay(2500).fadeIn(250);
 
@@ -197,7 +122,7 @@ jQuery(document).ready(function () {
      jQuery(this).keydown(function (event) {
      if (event.which == 27)
      jQuery('.ouibounce-modal_instagram').fadeOut(200);
-     });
+     });*/
 
 /*    Блок Карта Slidedown*/
 
@@ -225,49 +150,7 @@ jQuery(document).ready(function () {
 
     setTimeout(function () {
         jQuery(".video")[0].play();
-    }, 3000);
-
-    /*  Карта yandex API*/
-
-    /*Инициализация счетчика spincrement*/
-
-    /*  jQuery(".statistics-item__number").spincrement({
-     thousandSeparator: "",
-     duration: 1300
-     });
-     */
-
-    function funcAdd() {
-        var scrollTop = jQuery(window).scrollTop();
-        if (scrollTop >= mainPoint + 950) {
-            jQuery(".statistics-item__number").spincrement({
-                thousandSeparator: "",
-                duration: 1300
-            });
-            window.removeEventListener('scroll', funcAdd);
-        }
-    }
-
-    window.addEventListener('scroll', funcAdd);
-
-
-    /*jQuery(window).one("scroll", function () {
-     var scrollTop = jQuery(window).scrollTop();
-
-     /!*  bodyHeight = jQuery('body').outerHeight(),
-     height = winPos + bodyHeight;*!/
-
-     /!*  var scrollBottom = jQuery(window).scrollTop() + jQuery(window).height();
-     console.log(scrollBottom);*!/
-
-     if (scrollTop >= mainPoint + 1200) {
-     jQuery(".statistics-item__number").spincrement({
-     thousandSeparator: "",
-     duration: 1300
-     });
-     /!*   jQuery(window).off('scroll');*!/
-     }
-     });*/
+    }, 2500);
 
 
     /*Подгрузка контента страницы в зависимости от города*/
@@ -297,3 +180,4 @@ jQuery(document).ready(function () {
 
 
 });
+

@@ -2,6 +2,7 @@
 if (! defined('ABSPATH')) {
     die();
 }
+
 $InstaGalleryItem = null;
 if (isset($_GET['ig_item']) && ! empty($_GET['ig_item'])) {
     $ig_item_id = (int) $_GET['ig_item'];
@@ -20,6 +21,7 @@ if (isset($InstaGalleryItem['ig_select_from'])) {
         $active_tag = true;
     }
 }
+
 $active_gallery = true;
 $active_carousel = false;
 if (isset($InstaGalleryItem['ig_display_type'])) {
@@ -31,233 +33,182 @@ if (isset($InstaGalleryItem['ig_display_type'])) {
 
 ?>
 <p>
-	<a href="<?php echo INSGALLERY_URL_ADMIN_PAGE; ?>" title="View Galleries List"
-		class="ig-btn"><span class="dashicons dashicons-arrow-left-alt"></span>Back to
-		List</a>
+	<a href="<?php echo INSGALLERY_URL_ADMIN_PAGE; ?>" title="<?php _e('View Galleries List','insta-gallery'); ?>" class="ig-btn"><span class="dashicons dashicons-arrow-left-alt"></span><?php _e('Back to List','insta-gallery'); ?></a>
 </p>
-<form method="post" id="ig-form-update"
-	action="<?php if(empty($InstaGalleryItem))  echo INSGALLERY_URL_ADMIN_PAGE; ?>">
+<form method="post" id="ig-form-update" action="<?php if(empty($InstaGalleryItem))  echo INSGALLERY_URL_ADMIN_PAGE; ?>">
 	<table class="form-table ig-table-edit">
 		<tbody>
 			<tr>
-				<th scope="row">Display Instagram Gallery from:</th>
+				<th scope="row"><?php _e('Display Instagram Gallery from','insta-gallery'); ?>:</th>
 				<td>
 					<ul class="ig-list-buttons">
-						<li><input type="radio" id="ig_select_from-username" name="ig_select_from"
-							value="username" <?php if($active_username) echo 'checked';?> /><label
-							for="ig_select_from-username">User Name</label>
+						<li><input type="radio" id="ig_select_from-username" name="ig_select_from" value="username" <?php if($active_username) echo 'checked';?> /><label
+							for="ig_select_from-username"><?php _e('Username','insta-gallery'); ?></label>
 							<div class="check"></div></li>
-						<li><input type="radio" id="ig_select_from-tag" name="ig_select_from"
-							value="tag" <?php if($active_tag) echo 'checked';?> /> <label
-							for="ig_select_from-tag"># Tag</label>
+						<li><input type="radio" id="ig_select_from-tag" name="ig_select_from" value="tag" <?php if($active_tag) echo 'checked';?> /> <label for="ig_select_from-tag"><?php _e('Tagname','insta-gallery'); ?></label>
 							<div class="check"></div></li>
-					</ul> <span class="description"> (Please select option to show pics from
-						Instagram Username OR # Tag.)</span>
+					</ul> <span class="description"> (<?php _e('Please select option to display pictures from Instagram Username OR # Tag.','insta-gallery'); ?>)</span>
 
 				</td>
 			</tr>
-			<tr id="ig-select-username-wrap"
-				class="ig-tab-content-row <?php if($active_username) echo 'active';?>">
+			<tr id="ig-select-username-wrap" class="ig-tab-content-row <?php if($active_username) echo 'active';?>">
 				<td colspan="100%">
 					<table>
 						<tr>
-							<th scope="row">Instagram User Name:</th>
-							<td><input name="insta_user" type="text" placeholder="MyUsername"
-								value="<?php if(!empty($InstaGalleryItem['insta_user'])){echo $InstaGalleryItem['insta_user']; }?>" />
-								<span class="description">e.g. https://www.instagram.com/<strong
-									class="ig-thm-color" style="font-size: 120%;">MyUsername</strong>/
+							<th scope="row"><?php _e('Instagram Username','insta-gallery'); ?>:</th>
+							<td><input name="insta_user" type="text" placeholder="<?php _e('username','insta-gallery'); ?>"
+								value="<?php if(!empty($InstaGalleryItem['insta_user'])){echo $InstaGalleryItem['insta_user']; }?>" /> <span class="description">e.g. https://www.instagram.com/<strong
+									class="ig-thm-color" style="font-size: 130%;"><?php _e('username','insta-gallery'); ?></strong>/
 							</span>
-								<p class="ig-generate-msgs">Please enter Instagram User Name.</p></td>
+								<p class="ig-generate-msgs"><?php _e('Please enter Instagram Username.','insta-gallery'); ?></p></td>
 						</tr>
 					</table>
 				</td>
 			</tr>
-			<tr id="ig-select-tag-wrap"
-				class="ig-tab-content-row  <?php if($active_tag) echo 'active';?>">
+			<tr id="ig-select-tag-wrap" class="ig-tab-content-row  <?php if($active_tag) echo 'active';?>">
 				<td colspan="100%">
 					<table>
 						<tr>
-							<th scope="row">Instagram # Tag:</th>
-							<td><input name="insta_tag" type="text" placeholder="beautiful"
-								value="<?php if(!empty($InstaGalleryItem['insta_tag'])){echo $InstaGalleryItem['insta_tag']; }?>" />
-								<span class="description">e.g. https://www.instagram.com/explore/tags/<strong
-									style="font-size: 120%; color: #e23565;">beautiful</strong>/
+							<th scope="row"><?php _e('Instagram Tagname','insta-gallery'); ?>:</th>
+							<td><input name="insta_tag" type="text" placeholder="beautiful" value="<?php if(!empty($InstaGalleryItem['insta_tag'])){echo $InstaGalleryItem['insta_tag']; }?>" /> <span
+								class="description">e.g. https://www.instagram.com/explore/tags/<strong style="font-size: 120%; color: #e23565;">beautiful</strong>/
 							</span>
-								<p class="ig-generate-msgs">Please enter Instagram # Tag.</p></td>
+								<p class="ig-generate-msgs"><?php _e('Please enter Instagram Tagname.','insta-gallery'); ?></p></td>
 						</tr>
 					</table>
 				</td>
 			</tr>
 			<tr>
-				<th scope="row">Pictures Limit:</th>
-				<td><input name="insta_limit" type="number" min="1" max="20"
-					value="<?php if(!empty($InstaGalleryItem['insta_limit'])){echo $InstaGalleryItem['insta_limit']; } else {echo '12'; }?>" />
-					<span class="description">number of pics to display on page. (max: 20)</span></td>
+				<th scope="row"><?php _e('Pictures Limit','insta-gallery'); ?>:</th>
+				<td><input name="insta_limit" type="number" min="1" max="12"
+					value="<?php if(!empty($InstaGalleryItem['insta_limit'])){echo $InstaGalleryItem['insta_limit']; } else {echo '12'; }?>" /> <span class="description"><?php _e('number of pictures to display (max: 12)','insta-gallery'); ?></span></td>
 			</tr>
 			<tr>
-				<th scope="row">Show As:</th>
+				<th scope="row"><?php _e('Show As','insta-gallery'); ?>:</th>
 				<td>
 					<ul class="ig-list-buttons">
-						<li><input type="radio" id="ig_display_type-gallery"
-							name="ig_display_type" value="gallery"
-							<?php if($active_gallery) echo 'checked';?> /><label
-							for="ig_display_type-gallery">Gallery</label>
+						<li><input type="radio" id="ig_display_type-gallery" name="ig_display_type" value="gallery" <?php if($active_gallery) echo 'checked';?> /><label for="ig_display_type-gallery"><?php _e('Gallery','insta-gallery'); ?></label>
 							<div class="check"></div></li>
-						<li><input type="radio" id="ig_display_type-carousel"
-							name="ig_display_type" value="carousel"
-							<?php if($active_carousel) echo 'checked';?> /><label
-							for="ig_display_type-carousel">Carousel</label>
+						<li><input type="radio" id="ig_display_type-carousel" name="ig_display_type" value="carousel" <?php if($active_carousel) echo 'checked';?> /><label
+							for="ig_display_type-carousel"><?php _e('Carousel','insta-gallery'); ?></label>
 							<div class="check"></div></li>
 					</ul>
 				</td>
 			</tr>
-			<tr id="ig-section-as-galllery"
-				class="ig-tab-content-row <?php if($active_gallery) echo 'active';?>">
+			<tr id="ig-section-as-galllery" class="ig-tab-content-row <?php if($active_gallery) echo 'active';?>">
 				<td colspan="100%">
-					<p>Pictures will be displayed as Grid and we can popup gallery by clicking
-						them.</p>
+					<p>
+						<strong><?php _e('Pictures will be displayed as Grid.','insta-gallery'); ?></strong>
+					</p>
 					<table>
 						<tr>
-							<th scope="row">No. of Pics Columns:</th>
+							<th scope="row"><?php _e('No. of Grid Columns','insta-gallery'); ?>:</th>
 							<td><input name="insta_gal-cols" type="number" min="1" max="20"
-								value="<?php if(!empty($InstaGalleryItem['insta_gal-cols'])){echo $InstaGalleryItem['insta_gal-cols']; } else {echo 3;}?>" />
-								<span class="description">number of pics in a row. </span></td>
-							<td rowspan="3"><img
-								src="<?php echo INSGALLERY_URL; ?>/assets/media/demo-gallery.jpg"
-								alt="demo gallery" width="500" /></td>
+								value="<?php if(!empty($InstaGalleryItem['insta_gal-cols'])){echo $InstaGalleryItem['insta_gal-cols']; } else {echo 3;}?>" /> <span class="description"><?php _e('number of pictures in a row','insta-gallery'); ?>. </span></td>
+							<td rowspan="3"><img src="<?php echo INSGALLERY_URL; ?>/assets/media/demo-gallery.jpg" alt="demo gallery" width="500" /></td>
 						</tr>
 						<tr>
-							<th scope="row">Image hover effect:</th>
-							<td><input name="insta_gal-hover" type="checkbox" value="1"
-								<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_gal-hover'])) ? '' : 'checked'; ?> />
-								<span class="description">mouseover animation effect on image </span></td>
+							<th scope="row"><?php _e('Image hover effect','insta-gallery'); ?>:</th>
+							<td><input name="insta_gal-hover" type="checkbox" value="1" <?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_gal-hover'])) ? '' : 'checked'; ?> /> <span
+								class="description"><?php _e('mouseover animation effect on image','insta-gallery'); ?> </span></td>
 						</tr>
 						<tr>
-							<th scope="row">Space between images:</th>
-							<td><input name="insta_gal-spacing" type="checkbox" value="1"
-								<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_gal-spacing'])) ? '' : 'checked'; ?> />
-								<span class="description">add blank space between images </span></td>
+							<th scope="row"><?php _e('Space between images','insta-gallery'); ?>:</th>
+							<td><input name="insta_gal-spacing" type="checkbox" value="1" <?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_gal-spacing'])) ? '' : 'checked'; ?> />
+								<span class="description"><?php _e('add blank space between images','insta-gallery'); ?> </span></td>
 						</tr>
 					</table>
 				</td>
 			</tr>
-			<tr id="ig-section-as-carousel"
-				class="ig-tab-content-row <?php if($active_carousel) echo 'active';?>">
+			<tr id="ig-section-as-carousel" class="ig-tab-content-row <?php if($active_carousel) echo 'active';?>">
 				<td colspan="100%">
-					<p>Pictures will be displayed as Carousel.</p>
+					<p>
+						<strong><?php _e('Pictures will be displayed as Carousel slider.','insta-gallery'); ?></strong>
+					</p>
 					<table>
 						<tr>
-							<th scope="row">Slides per view:</th>
+							<th scope="row"><?php _e('Slides per view','insta-gallery'); ?>:</th>
 							<td><input name="insta_car-slidespv" type="number" min="1" max="10"
-								value="<?php if(!empty($InstaGalleryItem['insta_car-slidespv'])){echo $InstaGalleryItem['insta_car-slidespv']; } else {echo 5;}?>" />
-								<span class="description">display number of pictures per slide view. </span></td>
-							<td rowspan="5"><img
-								src="<?php echo INSGALLERY_URL; ?>/assets/media/demo-carousel.jpg"
-								alt="demo carousel" width="500" /></td>
+								value="<?php if(!empty($InstaGalleryItem['insta_car-slidespv'])){echo $InstaGalleryItem['insta_car-slidespv']; } else {echo 5;}?>" /> <span class="description"><?php _e('display number of pictures per slide view.','insta-gallery'); ?> </span></td>
+							<td rowspan="5"><img src="<?php echo INSGALLERY_URL; ?>/assets/media/demo-carousel.jpg" alt="demo carousel" width="500" /></td>
 						</tr>
 						<tr>
-							<th scope="row">Navigation arrows:</th>
-							<td><input name="insta_car-navarrows" type="checkbox" value="1"
-								<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_car-navarrows'])) ? '' : 'checked'; ?> />
-								<span class="description">show prev-next navigation arrows. </span></td>
+							<th scope="row"><?php _e('Navigation arrows','insta-gallery'); ?>:</th>
+							<td><input name="insta_car-navarrows" type="checkbox" value="1" <?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_car-navarrows'])) ? '' : 'checked'; ?> />
+								<span class="description"><?php _e('show prev-next navigation arrows.','insta-gallery'); ?> </span></td>
 						</tr>
 						<tr>
-							<th scope="row">Dotted navigation:</th>
-							<td><input name="insta_car-dots" type="checkbox" value="1"
-								<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_car-dots'])) ? '' : 'checked'; ?> />
-								<span class="description">show dotted navigation buttons. </span></td>
+							<th scope="row"><?php _e('Dotted navigation','insta-gallery'); ?>:</th>
+							<td><input name="insta_car-dots" type="checkbox" value="1" <?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_car-dots'])) ? '' : 'checked'; ?> /> <span
+								class="description"><?php _e('show dotted navigation buttons.','insta-gallery'); ?> </span></td>
 						</tr>
 						<tr>
-							<th scope="row">Space between slides:</th>
-							<td><input name="insta_car-spacing" type="checkbox" value="1"
-								<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_car-spacing'])) ? '' : 'checked'; ?> />
-								<span class="description">add space between carousel items. </span></td>
+							<th scope="row"><?php _e('Space between slides','insta-gallery'); ?>:</th>
+							<td><input name="insta_car-spacing" type="checkbox" value="1" <?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_car-spacing'])) ? '' : 'checked'; ?> />
+								<span class="description"><?php _e('add blank space between carousel items.','insta-gallery'); ?> </span></td>
 						</tr>
 					</table>
 				</td>
 			</tr>
 			<tr>
-				<th scope="row">Images thumbnail size:</th>
+				<th scope="row"><?php _e('Images thumbnail size','insta-gallery'); ?>:</th>
 				<td><select name="insta_thumb-size">
-						<option value="medium">Medium(640,320 x auto)</option>
-						<option value="small"
-							<?php echo (isset($InstaGalleryItem['insta_thumb-size']) && ($InstaGalleryItem['insta_thumb-size'] == 'small')) ? 'selected' : ''; ?>>Small(150
+						<option value="medium"><?php _e('Medium','insta-gallery'); ?>(640,320 x auto)</option>
+						<option value="small" <?php echo (isset($InstaGalleryItem['insta_thumb-size']) && ($InstaGalleryItem['insta_thumb-size'] == 'small')) ? 'selected' : ''; ?>><?php _e('Small','insta-gallery'); ?>(150
 							x 150)</option>
-				</select> <span class="description"><br />select small for square size
-						images. </span></td>
+				</select></td>
 			</tr>
 			<tr>
-				<th scope="row">Images hover color:</th>
+				<th scope="row"><?php _e('Images hover effect color','insta-gallery'); ?>:</th>
 				<td><input id="insta_hover-color-choose" type="color"
-					value="<?php echo (!empty($InstaGalleryItem['insta_hover-color']) ? $InstaGalleryItem['insta_hover-color'] : '#007aff'); ?>" />
-					<input name="insta_hover-color" type="text" placeholder="#007aff"
-					value="<?php echo (!empty($InstaGalleryItem['insta_hover-color']) ? $InstaGalleryItem['insta_hover-color'] : ''); ?>" />
-					<span class="description">select color which is displayed when hovered over
-						images.<br />( <span class="ig-thm-color">color name should be in <i>hexadecimal
-								notation</i> e.g. #000000
-					</span> )
-				</span></td>
+					value="<?php echo (!empty($InstaGalleryItem['insta_hover-color']) ? $InstaGalleryItem['insta_hover-color'] : '#007aff'); ?>" /> <input name="insta_hover-color" type="text"
+					placeholder="#007aff" value="<?php echo (!empty($InstaGalleryItem['insta_hover-color']) ? $InstaGalleryItem['insta_hover-color'] : ''); ?>" /> <span class="description"><?php _e('select color which is displayed when hovered over images.','insta-gallery'); ?><br />(
+						<span class="ig-thm-color"><?php _e('color name should be in Hexadecimal notation. e.g. #dddddd','insta-gallery'); ?>
+					</span> ) </span></td>
 			</tr>
 			<tr>
-				<th scope="row">Popup images on thumbnail click:</th>
-				<td><input name="insta_gal-popup" type="checkbox" value="1"
-					<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_gal-popup'])) ? '' : 'checked'; ?> />
-					<span class="description">show popup gallery by clicking on image
-						thumbnail. <br />( <span class="ig-thm-color">uncheck this if it conflicts
-							with other plugins, like: fancybox popup etc.</span> )
-				</span></td>
+				<th scope="row"><?php _e('Popup images on click','insta-gallery'); ?>:</th>
+				<td><input name="insta_gal-popup" type="checkbox" value="1" <?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_gal-popup'])) ? '' : 'checked'; ?> /> <span
+					class="description"><?php _e('show popup gallery by clicking on image thumbnail.','insta-gallery'); ?> <br />( <span class="ig-thm-color"><?php
+    _e('uncheck this if it conflicts with other plugins, like: fancybox, prettyphoto etc.', 'insta-gallery');
+    ?></span> ) </span></td>
 			</tr>
 			<tr>
-				<th scope="row">Display Likes:</th>
-				<td><input name="insta_likes" type="checkbox" value="1"
-					<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_likes'])) ? '' : 'checked'; ?> />
-					<span class="description">display likes count of images. </span></td>
+				<th scope="row"><?php _e('Display Likes','insta-gallery'); ?>:</th>
+				<td><input name="insta_likes" type="checkbox" value="1" <?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_likes'])) ? '' : 'checked'; ?> /> <span
+					class="description"><?php _e('display likes count of images.','insta-gallery'); ?> </span></td>
 			</tr>
 			<tr>
-				<th scope="row">Display Comments:</th>
-				<td><input name="insta_comments" type="checkbox" value="1"
-					<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_comments'])) ? '' : 'checked'; ?> />
-					<span class="description">display comments count of images. </span></td>
+				<th scope="row"><?php _e('Display Comments','insta-gallery'); ?>:</th>
+				<td><input name="insta_comments" type="checkbox" value="1" <?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_comments'])) ? '' : 'checked'; ?> /> <span
+					class="description"><?php _e('display comments count of images.','insta-gallery'); ?> </span></td>
 			</tr>
 			<tr>
-				<th scope="row">Display Instagram Link Button:</th>
-				<td><input name="insta_instalink" type="checkbox" value="1"
-					<?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_instalink'])) ? '' : 'checked'; ?> />
-					<span class="description">show the button to open Instagram site link </span></td>
+				<th scope="row"><?php _e('Display Instagram Link Button','insta-gallery'); ?>:</th>
+				<td><input name="insta_instalink" type="checkbox" value="1" <?php echo (isset($InstaGalleryItem) && empty($InstaGalleryItem['insta_instalink'])) ? '' : 'checked'; ?> /> <span
+					class="description"><?php _e('show the button to open Instagram site link','insta-gallery'); ?> </span></td>
 			</tr>
-			<tr id="ig-section-igbtn"
-				class="ig-tab-content-row <?php if(isset($InstaGalleryItem) && !empty($InstaGalleryItem['insta_instalink'])) echo 'active';?>">
+			<tr id="ig-section-igbtn" class="ig-tab-content-row <?php if(isset($InstaGalleryItem) && !empty($InstaGalleryItem['insta_instalink'])) echo 'active';?>">
 				<td colspan="100%">
 					<table>
 						<tr>
-							<th scope="row">Instagram Button Text:</th>
-							<td><input name="insta_instalink-text" type="text"
-								placeholder="view on Instagram"
-								value="<?php if(!empty($InstaGalleryItem['insta_instalink-text'])){echo $InstaGalleryItem['insta_instalink-text']; }?>" />
-								<span class="description">update Instagram button text here.</span></td>
+							<th scope="row"><?php _e('Instagram Button Text','insta-gallery'); ?>:</th>
+							<td><input name="insta_instalink-text" type="text" placeholder="view on Instagram"
+								value="<?php if(!empty($InstaGalleryItem['insta_instalink-text'])){echo $InstaGalleryItem['insta_instalink-text']; }?>" /> <span class="description"><?php _e('update Instagram button text here.','insta-gallery'); ?></span></td>
 						</tr>
 						<tr>
-							<th scope="row">Button Background Color:</th>
+							<th scope="row"><?php _e('Button Background Color','insta-gallery'); ?>:</th>
 							<td><input id="insta_instalink-bgcolor-choose" type="color"
-								value="<?php echo (!empty($InstaGalleryItem['insta_instalink-bgcolor']) ? $InstaGalleryItem['insta_instalink-bgcolor'] : '#c32a67'); ?>" />
-								<input name="insta_instalink-bgcolor" type="text" placeholder="#c32a67"
-								value="<?php echo (!empty($InstaGalleryItem['insta_instalink-bgcolor']) ? $InstaGalleryItem['insta_instalink-bgcolor'] : ''); ?>" />
-								<span class="description">select color which is displayed on button background.<br />( <span class="ig-thm-color">color name should be in
-										<i>hexadecimal notation</i> e.g. #000000
-								</span> )
-							</span></td>
+								value="<?php echo (!empty($InstaGalleryItem['insta_instalink-bgcolor']) ? $InstaGalleryItem['insta_instalink-bgcolor'] : '#c32a67'); ?>" /> <input
+								name="insta_instalink-bgcolor" type="text" placeholder="#c32a67"
+								value="<?php echo (!empty($InstaGalleryItem['insta_instalink-bgcolor']) ? $InstaGalleryItem['insta_instalink-bgcolor'] : ''); ?>" /> <span class="description"><?php _e('color which is displayed on button background.','insta-gallery'); ?></span></td>
 						</tr>
 						<tr>
-							<th scope="row">Button Mouse Hover Color:</th>
+							<th scope="row"><?php _e('Button Hover Color','insta-gallery'); ?>:</th>
 							<td><input id="insta_instalink-hvrcolor-choose" type="color"
-								value="<?php echo (!empty($InstaGalleryItem['insta_instalink-hvrcolor']) ? $InstaGalleryItem['insta_instalink-hvrcolor'] : '#da894a'); ?>" />
-								<input name="insta_instalink-hvrcolor" type="text" placeholder="#da894a"
-								value="<?php echo (!empty($InstaGalleryItem['insta_instalink-hvrcolor']) ? $InstaGalleryItem['insta_instalink-hvrcolor'] : ''); ?>" />
-								<span class="description">select color which is displayed when hovered
-									over button.<br />( <span class="ig-thm-color">color name should be in
-										<i>hexadecimal notation</i> e.g. #000000
-								</span> )
-							</span></td>
+								value="<?php echo (!empty($InstaGalleryItem['insta_instalink-hvrcolor']) ? $InstaGalleryItem['insta_instalink-hvrcolor'] : '#da894a'); ?>" /> <input
+								name="insta_instalink-hvrcolor" type="text" placeholder="#da894a"
+								value="<?php echo (!empty($InstaGalleryItem['insta_instalink-hvrcolor']) ? $InstaGalleryItem['insta_instalink-hvrcolor'] : ''); ?>" /> <span class="description"><?php _e('color which is displayed when hovered over button.','insta-gallery'); ?></span></td>
 						</tr>
 					</table>
 				</td>
@@ -266,15 +217,13 @@ if (isset($InstaGalleryItem['ig_display_type'])) {
 	</table>
 	<div>
 		<button class="button-primary ig-add-update" type="submit">
-			<span class="dashicons dashicons-plus"></span> Update / Add
+			<?php _e('Update','insta-gallery'); ?> 
 		</button>
-		<p class="description">update info here and copy/paste generated shortcode in
-			your post/pages.</p>
+		<p class="description"><?php _e('update settings and copy/paste generated shortcode in your post/pages or goto Widgets and use Instagram Gallery widget.','insta-gallery'); ?></p>
 	</div>
 	<input type="hidden" name="ig-form-update" value="true" />
 	<?php if(!empty($InstaGalleryItem['ig_item_id'])) {?>
-	<input type="hidden" name="igitem_id"
-		value="<?php echo $InstaGalleryItem['ig_item_id']; ?>" />
+	<input type="hidden" name="igitem_id" value="<?php echo $InstaGalleryItem['ig_item_id']; ?>" />
 	<?php } ?>
 </form>
 <script>

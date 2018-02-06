@@ -269,9 +269,6 @@ class Master_Slider {
         update_option( 'master-slider_ab_pro_feature_setting_content_type', rand(1, 2) );
     }
 
-    // dont display phlox notice in first 3 days
-    set_transient( 'masterslider_display_phlox_notice', 1, 3 * DAY_IN_SECONDS );
-
     do_action( 'masterslider_activated', get_current_blog_id() );
   }
 

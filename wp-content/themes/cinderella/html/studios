@@ -1,0 +1,94 @@
+<section id="studios" class="studios clearfix">
+    <div class="container-fluid">
+        <div class="map-container">
+            <div class="studios-info_map">
+
+                <div class="container">
+
+                    <div class="studios__slide down"></div>
+
+                    <div class="studios-info">
+                        <h3 class="studios-info__title">Ближайшая к вам студия </h3>
+
+                        <h3 class="studios-info__title studios-info__title_name"> ТРК «Роял Парк» </h3>
+
+                        <p class="studios-info__text">
+                            <span class="metro-icon"></span> Заельцовская<br>
+                            г. Новосибирск, м. Заельцовская<br>
+                            Красный проспект, 101, ТРК<br>
+                            «Роял Парк», 2-й этаж<br>
+                            <strong class="studios-info__text-big">+7 (383) 291-52-44 </strong>
+                        </p>
+
+                        <div class="map-entry">
+                            <a href="#" class="map__order ms_booking"
+                               data-url="https://w12204.yclients.com">Записаться</a>
+                        </div>
+
+                    </div>
+
+                    <div class="studios-image">
+                        <div class="studios-salon studios-salon_small">
+                            <img class="studios-salon__img"
+                                 src="http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/salon.jpg"
+                                 alt="">
+                        </div>
+                    </div>
+
+
+                    <div class="chosen-studio">
+                        <div class="chosen-studio__title-container">
+                            <span class="chosen-studio__title">Ближайшая к вам студия </span>
+                            <span class="chosen-studio__title_name"> ТРК «Роял Парк» </span>
+                        </div>
+
+                        <div class="chosen-studio__info-container">
+                            <small class="studios-info__text studios-info__text_chosen">
+                                <span class="metro-icon metro-icon_small"></span>Заельцовская<br>
+                                Красный проспект, 101, ТРК<br>
+                                «Роял Парк», 2-й этаж<br>
+                                <strong class="studios-info__text-big">+7 (383) 291-52-44 </strong>
+                            </small>
+                        </div>
+
+                        <div class="map-entry map-entry_chosen">
+                            <a href="#" class="map__order map__order_chosen">Записаться</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="map" style="height: 560px"></div>
+
+        </div>
+    </div>
+</section>
+
+
+<div class="container">
+    <div class="row row_studios_upper">
+        <div class="col-md-12">
+
+            <h1 class="studios__title">Найдите студию маникюра и педикюра</h1>
+
+             <div class="current__city-container">
+                    <span class="studios__current-city"></span>
+             </div>
+        </div>
+
+        <div class="search-studios">
+            <span class="search-studios__text">Найдено:</span>
+            <p class="search-studios__number"><span class="search-studios__digit"></span>Студий</p>
+        </div>
+
+    </div>
+
+    <div class="row row-studios">
+        <div class="col-md-12">
+            <section class="studios-list">
+            </section>
+        </div>
+    </div>
+
+</div>

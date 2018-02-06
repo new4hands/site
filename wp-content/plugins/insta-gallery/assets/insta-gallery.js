@@ -15,16 +15,10 @@
 	        	$e.addClass('ig-block-loaded');
 			}
 			var $spinner = $e.find('.ig-spinner');
-			var igalid = parseInt($e.data('igalid'));
-			if(!$spinner.length || isNaN(igalid)){
+			var insgalid = parseInt($e.data('insgalid'));
+			if(!$spinner.length || isNaN(insgalid)){
 				return;
 			}
-			
-			// check internet connection
-			/*  if(!navigator.onLine){
-				$e.append('you are OFFLINE, please connect to internet to view Instagram Gallery.');
-				return;
-			} */
 			
 			jQuery.ajax({
 				url : insgalajax.ajax_url,
@@ -32,7 +26,7 @@
 	            dataType: 'JSON',
 				data : {
 					action : 'load_ig_item',
-					igalid : igalid
+					insgalid : insgalid
 				},
 				cache: true,
 				beforeSend : function()
@@ -41,9 +35,9 @@
 				},
 				success : function( response ) {
 					if((typeof response == 'undefined') || (response == null) || (response == 0)) return;
-					if ((typeof response === 'object') && response.igsuccess) {
-	                    if (response.result) {
-	        				$e.append( response.result );
+					if ((typeof response === 'object') && response.success) {
+	                    if (response.data) {
+	        				$e.append( response.data );
 	                    }
 	                }
 				}

@@ -1,9 +1,9 @@
 === Plugin Name ===
 Contributors: Karan Singh
-Tags: instagram, instagram feed, gallery, pictures, slider, carousel slider, image gallery, image slider, instagram gallery, instagram pictures
+Tags: instagram, instagram feed, instagram widget, gallery, gallery widget, pictures, slider, carousel slider, image gallery, image slider, instagram gallery, instagram pictures
 Requires at least: 3.8.0
-Tested up to: 4.8
-Stable tag: 1.4.6
+Tested up to: 4.9
+Stable tag: 1.5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.me/karanpay
@@ -16,9 +16,9 @@ Easy and simple way to display your Instagram images on the website.
 Display pictures from Instagram account as Gallery or as Carousel Slider. There is no need to configure APIs or login anywhere, just paste your Instagram Username or Tagname and configure your settings.
 it's a game of few seconds and your pictures will be on the website.
 
-**Demo:** you can see live demo [Here](https://www.karansingh.ml/public/demo/insta-gallery/) or check 'screenshots' section for demo.
+**Demo:** you can see demo [Here](https://www.karansingh.ml/public/demo/insta-gallery/) or check 'screenshots' section.
 
-**How to use:**  add new gallery in plugin setting panel, and copy/paste the generated shortcode in the pages/posts/widgets content OR use the "echo do_shortcode( '[MyShortcode]' );" php code to add them in PHP file. 
+**How to use:** add new gallery in plugin setting panel and copy/paste the generated shortcode in the pages/posts content OR you can use the 'Instagram Gallery' Widget within widget section. 
 
 
 == Installation ==
@@ -45,14 +45,21 @@ profile needs to be publicly visible to show pictures.
 
 Yes, but sometimes it can conflicts with each other. So, try to create new gallery with same setting and add them.
 
-= Can i display pictures by using #Tag? =
+= Can i display pictures by using Tagname? =
 
 Yes you can.
+
+= How to add Gallery to Widget? =
+
+goto to plugin panel and add new gallery, then goto widgets, add Instagram Gallery widget and select the Gallery item from dropdown list.
 
 = Why there are two popups on image click? =
 
 there may be some other plugins(like: fancybox) which also uses image links to open popup. try to disable popup images option in the setting panel of this plugin, which will allow other plugins to work.
 
+= Error: No working transports found =
+
+this error visible sometimes in PHP 7+ installations due to the missing CURL extension.
 
 == Screenshots ==
 
@@ -60,8 +67,24 @@ there may be some other plugins(like: fancybox) which also uses image links to o
 2. Gallery front-end view with image popup
 3. Carousel Slider view
 4. Plugin backend
+5. Gallery Widget
 
 == Changelog ==
+= 1.5.4 =
+* API update for Tags fixed
+
+= 1.5.3 =
+* added FIX for localization code issue
+
+= 1.5.2 =
+* prepared for localization
+
+= 1.5.1 =
+* Gallery widget added
+* Transients support added
+* template customisation added
+* code updated for better performance
+
 = 1.4.6 =
 * Instagram API error quick FIX added
 
@@ -139,6 +162,18 @@ there may be some other plugins(like: fancybox) which also uses image links to o
 
 
 == Upgrade Notice ==
+= 1.5.4 =
+Tag media loading issue fixed
+
+= 1.5.3 =
+localization code issue fixed
+
+= 1.5.2 =
+localization ready, now easily translate in your language
+
+= 1.5.1 =
+gallery widget and speed optimisation
+
 = 1.4.6 =
 update to fix no data error
 

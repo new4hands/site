@@ -1,5 +1,8 @@
 <?php
-/**
+if (! defined('ABSPATH')) {
+    die();
+}
+/*
  * Instagram Gallery
  * WP admin panel plugin page
  */
@@ -7,18 +10,16 @@
 // current page url
 define('INSGALLERY_URL_ADMIN_PAGE', menu_page_url('insta_gallery', false));
 
-
-
 $InstaGalleryItems = get_option('insta_gallery_items');
 $ig_page_msgs = array();
 // add/update gallery item
 if (isset($_POST['ig-form-update'])) {
     // filtering data
-    $POSTDATA  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    $POSTDATA = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
     $IGItem = array();
     $IGItem['ig_select_from'] = $POSTDATA['ig_select_from'];
-    $IGItem['insta_user'] = (string)$POSTDATA['insta_user'];
-    $IGItem['insta_tag'] = (string)$POSTDATA['insta_tag'];
+    $IGItem['insta_user'] = (string) $POSTDATA['insta_user'];
+    $IGItem['insta_tag'] = (string) $POSTDATA['insta_tag'];
     $IGItem['insta_limit'] = $POSTDATA['insta_limit'];
     $IGItem['ig_display_type'] = $POSTDATA['ig_display_type'];
     $IGItem['insta_gal-cols'] = $POSTDATA['insta_gal-cols'];
@@ -44,9 +45,8 @@ if (isset($_POST['ig-form-update'])) {
     if (substr($IGItem['insta_user'], 0, 1) == '@')
         $IGItem['insta_user'] = substr($IGItem['insta_user'], 1);
     if (substr($IGItem['insta_tag'], 0, 1) == '#')
-            $IGItem['insta_tag'] = substr($IGItem['insta_tag'], 1);
+        $IGItem['insta_tag'] = substr($IGItem['insta_tag'], 1);
     
-            
     if (isset($POSTDATA['igitem_id'])) {
         $InstaGalleryItems[(int) $POSTDATA['igitem_id']] = $IGItem;
     } else {
@@ -57,7 +57,7 @@ if (isset($_POST['ig-form-update'])) {
         }
     }
     update_option('insta_gallery_items', $InstaGalleryItems);
-    $ig_page_msgs[] = 'Gallery item updated successfully.';
+    $ig_page_msgs[] = __('Gallery item updated successfully.','insta-gallery');
 }
 
 // delete gallery item
@@ -67,7 +67,7 @@ if (isset($_GET['ig_item_delete'])) {
         unset($InstaGalleryItems[$item_id]);
         update_option('insta_gallery_items', $InstaGalleryItems);
     }
-    $ig_page_msgs[] = 'Gallery item deleted successfully.';
+    $ig_page_msgs[] = __('Gallery item deleted successfully.','insta-gallery');
 }
 
 ?>
@@ -75,16 +75,15 @@ if (isset($_GET['ig_item_delete'])) {
 	<div class="wrap">
 		<header class="ig-page-header">
 			<img src="<?php echo INSGALLERY_URL; ?>/assets/media/icon-128x128.jpg" class="ig-logo" />
-			<h3>Instagram Gallery:</h3>
-			<p>easy way to display your Instagram pictures on the website.</p>
+			<h3><?php _e('Instagram Gallery','insta-gallery'); ?></h3>
+			<p><?php _e('easy way to display Instagram pictures on the website.','insta-gallery'); ?></p>
 		</header>
 		<hr />
 		<div class="ig-page-content">
 			<?php
 if (! empty($ig_page_msgs)) {
     foreach ($ig_page_msgs as $ig_page_msg) {
-        echo '<div class="notice updated my-acf-notice is-dismissible ig_page_msg" ><p>' .
-             $ig_page_msg . '</p></div>';
+        echo '<div class="notice updated my-acf-notice is-dismissible ig_page_msg" ><p>' . $ig_page_msg . '</p></div>';
     }
 }
 ?>

@@ -1,0 +1,20 @@
+[
+  {
+  "name": "Маникюр Классический",
+  "price": "от 650 ₽",
+  "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+  "time" : "50 Минут",
+  "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/manicure_08.jpg",
+  "link" : "#"
+},
+
+  {
+    "name": "Педикюр Классический",
+    "price": "от 850 ₽",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/pedicure_07.jpg",
+    "link" : "#"
+  }
+
+  ]

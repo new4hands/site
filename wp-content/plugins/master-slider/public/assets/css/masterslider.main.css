@@ -458,7 +458,6 @@
 	float: none;
 }
 .ms-bullets.ms-dir-h .ms-bullets-count {
-	width: 100px;
 	position: relative;
 	right: -50%;
 }
@@ -556,6 +555,8 @@
 .ms-pattern.ms-patt-29 {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAABJJREFUCNdjUGBwYGhg4GAQAAAFkgD5MUFnfgAAAABJRU5ErkJggg==);}
 .ms-pattern.ms-patt-30 {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADAQMAAABs5if8AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAA5JREFUCNdjcGBoYFAAAALmAOHcBT11AAAAAElFTkSuQmCC);}
 
+
+
 /**
  *  Master Slider
  *  Default Skin
@@ -584,47 +585,34 @@
 .ms-skin-default .ms-nav-next,
 .ms-skin-default .ms-nav-prev {
 	width: 30px;
+	background: url(skins/light-skin-1.png);
+	background-position: -89px -26px;
 	height: 40px;
 	cursor: pointer;
-	bottom: 5px;
-	left: 100px;
-	margin-top: -15px;
+	top: 50%;
+	left: 30px;
+	margin-top: -20px;
 	position: absolute;
 	z-index: 110;
 }
-
-.ms-skin-default .ms-nav-prev {
-	background: url(skins/arrow-back.png) 0 0 no-repeat;
-}
-
 .ms-skin-default .ms-nav-next {
-	background: url(skins/arrow-forward.png) 0 0 no-repeat;
-}
-
-.ms-skin-default .ms-nav-next {
-	right: 100px;
+	right: 30px;
 	left: auto;
+	background-position: -89px -103px;
 }
+
+
 
 .ms-skin-default .ms-bullet {
-	display: block;
-	float: left;
-	width: 7px;
-	height: 7px;
-	margin-top: 7px;
-	margin-right: 16px !important;
-	background: #fff;
-	cursor: pointer;
-	text-indent: -9999px;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	background: url(skins/light-skin-1.png) no-repeat;
+	margin: 4px;
+	background-position: -34px -117px;
 }
 
 .ms-skin-default .ms-bullet-selected {
-	margin-top: 3px !important;
-	border: 2px solid #dd567b;
-	background: none;
+	background-position: -34px -84px;
 }
 
 .ms-skin-default .ms-tooltip{

@@ -1,64 +1,80 @@
 <?php
+/**
+ * The Template for displaying Gallery
+ *
+ * This template can be overridden by copying it to yourtheme/insta-gallery/gallery.php.
+ *
+ * HOWEVER, on occasion will need to update template files and you
+ * (the theme developer) will need to copy the new files to your theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen.
+ *
+ * @package 	insta-gallery/templates
+ * @version     1.1.1
+ */
+if (! defined('ABSPATH')) {
+    exit();
+}
 
+// $insta_source : gallery source like user or tag
+// $IGItem : array of gallery item setting
+// $instaItems : array of gallery items
+
+$JSIGSelector = '#instagal-' . $IGItem['gid']; // Gallery selector
+?>
+<div class="instagallery-items instagallery" data-source="<?php echo $insta_source; ?>" id="instagal-<?php echo $IGItem['gid']; ?>">
+<?php
 $i = 1;
-$results .= '<div class="instagallery-items instagallery" data-source="'.$insta_source.'" id="instagal-'.$IGItem['gid'].'">';
 foreach ($instaItems as $item) {
     
     $img_src = ($IGItem['insta_gal-cols'] == 1) ? $item['img_standard'] : ((($IGItem['insta_gal-cols'] > 9) || ($IGItem['insta_thumb-size'] == 'small')) ? $item['img_thumb'] : $item['img_low']);
     $hovered = $IGItem['insta_gal-hover'] ? 'ighover' : '';
     $spacing = $IGItem['insta_gal-spacing'] ? '' : 'no-spacing';
-    $results .= '<div class="ig-item '.$hovered.' '. $spacing .' cols-' . $IGItem['insta_gal-cols'] . '" style="width:' . (100 / $IGItem['insta_gal-cols']) . '%;">';
-    
-    $results .= '<a href="' . $item['img_standard'] . '" target="blank" data-title="' .$item['caption']. '" class="nofancybox">';
-    $results .= '<img src="' . $img_src . '" alt="instagram" class="instagallery-image" />';
-    if($IGItem['insta_likes'] || $IGItem['insta_comments']){
-        $results .= '<span class="ig-likes-comments">';
-        if($IGItem['insta_likes']){
-            $results .= '<span><span class="dashicons dashicons-heart"></span>' . $item['likes'] . '</span>';
+    ?>
+    <div class="ig-item <?php echo $hovered.' '. $spacing; ?> cols-<?php echo $IGItem['insta_gal-cols']; ?>" style="width: <?php echo (100 / $IGItem['insta_gal-cols']); ?>%;">
+		<a href="<?php echo $item['img_standard']; ?>" target="blank" data-title="<?php echo $item['caption']; ?>" class="nofancybox"> <img src="<?php echo $img_src; ?>" alt="instagram"
+			class="instagallery-image" />
+	<?php
+    if ($IGItem['insta_likes'] || $IGItem['insta_comments']) {
+        echo '<span class="ig-likes-comments">';
+        if ($IGItem['insta_likes']) {
+            echo '<span><span class="dashicons dashicons-heart"></span>' . $item['likes'] . '</span>';
         }
-        if($IGItem['insta_comments']){
-            $results .= '<span><span class="dashicons dashicons-admin-comments"></span>' . $item['comments'] . '</span>';
+        if ($IGItem['insta_comments']) {
+            echo '<span><span class="dashicons dashicons-admin-comments"></span>' . $item['comments'] . '</span>';
         }
-        $results .= '</span>';
+        echo '</span>';
     }
-    $results .= '</a>';
-    $results .= '</div>';
-    
+    ?>
+    </a>
+	</div>
+	<?php
     $i ++;
     if (($IGItem['insta_limit'] != 0) && ($i > $IGItem['insta_limit']))
         break;
 }
-$results .= '</div>';
-if($IGItem['insta_instalink']){
-    $results .= '<div class="instagallery-actions"><a href="'.$instaUrl.'" target="blank" class="igact-instalink"><span class="dashicons dashicons-external"></span>'.$IGItem['insta_instalink-text'].'</a></div>';
-}
+?>
+</div>
+<?php
+if ($IGItem['insta_instalink']) {
+    ?>
+<div class="instagallery-actions">
+	<a href="<?php echo $instaUrl; ?>" target="blank" class="igact-instalink"><span class="dashicons dashicons-external"></span><?php echo $IGItem['insta_instalink-text']; ?></a>
+</div>
+<?php } ?>
 
 
-$JSIGSelector = '#instagal-'.$IGItem['gid'];
-$IGBSelector = '#ig-block-'.$IGItem['gid'];
+<?php
 
-$ig_dstyle = '';
-if(!empty($IGItem['insta_hover-color'])){
-    $ig_dstyle .= $JSIGSelector .' .ig-item.ighover a:hover:after, '.$JSIGSelector.' .swiper-slide a:hover:after {background: '.$IGItem['insta_hover-color'].';}';
-}
-if(!empty($IGItem['insta_instalink-bgcolor'])){
-    $ig_dstyle .= $IGBSelector .' .instagallery-actions .igact-instalink {background: '.$IGItem['insta_instalink-bgcolor'].';}';
-}
-if(!empty($IGItem['insta_instalink-hvrcolor'])){
-    $ig_dstyle .= $IGBSelector .' .instagallery-actions .igact-instalink:hover {background: '.$IGItem['insta_instalink-hvrcolor'].';}';
-}
-if(!empty($ig_dstyle)){
-    $results .= "<script>jQuery(function(){jQuery('head').append('<style>$ig_dstyle</style>');});</script>";
-}
-
+// resize images to square and
+// activate popup
 if ($IGItem['insta_gal-popup']) {
-    
-    $rs = <<<JS
-    <script>
+    ?>
+<script>
     jQuery(document).ready(function ($) {
-    
-    // resize images to square
-    	var instagalleryImages = $('$JSIGSelector .ig-item img.instagallery-image');
+
+        // resize images to square
+    	var instagalleryImages = $('<?php echo $JSIGSelector; ?> .ig-item img.instagallery-image');
     	if(instagalleryImages.length){
     		var totalImages = instagalleryImages.length, imagesLoaded = 0,minHeight = 0;
     		instagalleryImages.load(function(){
@@ -67,7 +83,7 @@ if ($IGItem['insta_gal-popup']) {
     		    // if(minHeight > $(this).height())minHeight = $(this).height();
                 if(($(this).width() == $(this).height()))minHeight = $(this).height();
     		    if(imagesLoaded >= totalImages){
-    		   	 	$('$JSIGSelector .ig-item img.instagallery-image').each(function(){
+    		    $('<?php echo $JSIGSelector; ?> .ig-item img.instagallery-image').each(function(){
                         var i = $(this);
                         var th = i.height();
     		   	 		if(minHeight < th){
@@ -79,7 +95,7 @@ if ($IGItem['insta_gal-popup']) {
     		    }
     		});
     	}
-      jQuery('$JSIGSelector .ig-item a').magnificPopup({
+      jQuery('<?php echo $JSIGSelector; ?> .ig-item a').magnificPopup({
         type: 'image',
         mainClass: 'mfp-with-zoom',
         zoom: {
@@ -101,6 +117,5 @@ if ($IGItem['insta_gal-popup']) {
       });
     });
     </script>
-JS;
-    $results .= $rs;
+<?php
 }

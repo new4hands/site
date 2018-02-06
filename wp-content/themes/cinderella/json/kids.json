@@ -1,0 +1,21 @@
+[
+
+  {
+    "name": "Маникюр",
+    "price": "от 300 ₽",
+    "description": "Freepik Selection имеет в виду все контенты которые были сделаны дизайнерами нашей команды. К этому, эсли вы присоединитесь к нашей ",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/manicure_07.jpg",
+    "link" : "#"
+  },
+
+  {
+    "name": "Педикюр",
+    "price": "от 850 ₽",
+    "description": "До 12 лет",
+    "time" : "50 Минут",
+    "image_path" : "http://new.4hands.ru/wp-content/themes/cinderella/assets/images/tmp/pedicure_08.jpg",
+    "link" : "#"
+  }
+
+]

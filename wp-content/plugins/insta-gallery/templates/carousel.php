@@ -1,64 +1,81 @@
 <?php
+/**
+ * The Template for displaying Carousel
+ *
+ * This template can be overridden by copying it to yourtheme/insta-gallery/carousel.php.
+ *
+ * HOWEVER, on occasion will need to update template files and you
+ * (the theme developer) will need to copy the new files to your theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen.
+ *
+ * @package 	insta-gallery/templates
+ * @version     1.1.1
+ */
+if (! defined('ABSPATH')) {
+    exit();
+}
 
+// $insta_source : gallery source like user or tag
+// $IGItem : array of gallery item setting
+// $instaItems : array of gallery items
+
+$JSICSelector = '#instagal-' . $IGItem['gid']; // Gallery selector
+?>
+<div class="swiper-container instacarousel" data-source="<?php echo $insta_source; ?>" id="instagal-<?php echo $IGItem['gid']; ?>">
+	<div class="swiper-wrapper">
+<?php
 $i = 1;
-
-$results .= '<div class="swiper-container instacarousel" data-source="' . $insta_source . '" data-hvcolor="'.$IGItem['insta_hover-color'].'" id="instagal-' . $IGItem['gid']. '">';
-$results .= '<div class="swiper-wrapper">';
-
 foreach ($instaItems as $item) {
     if (! empty($item['img_low']) && ! empty($item['img_standard']) && ! empty($item['img_thumb'])) {
         $img_src = ($IGItem['insta_car-slidespv'] == 1) ? $item['img_standard'] : ((($IGItem['insta_car-slidespv'] > 10) || ($IGItem['insta_thumb-size'] == 'small')) ? $item['img_thumb'] : $item['img_low']);
-        $results .= '<div class="swiper-slide" >';
-        $results .= '<a href="' . $item['img_standard'] . '" target="blank" data-title="' .$item['caption']. '" class="nofancybox">'; // ' .substr($item['caption'],0,120). '
-        $results .= '<img alt="instagram" class="instacarousel-image" src="' . $img_src. '" />';
-        // $results .= '<img data-src="' . $img_src. '" class="swiper-lazy" /><div class="swiper-lazy-preloader"></div>';
+        ?>
+        <div class="swiper-slide">
+			<a href="<?php echo $item['img_standard']; ?>" target="blank" data-title="<?php echo $item['caption']; ?>" class="nofancybox"> <img alt="instagram" class="instacarousel-image"
+				src="<?php echo $img_src; ?>" />
+        <?php
         if ($IGItem['insta_likes'] || $IGItem['insta_comments']) {
-            $results .= '<span class="ic-likes-comments">';
+            echo '<span class="ic-likes-comments">';
             if ($IGItem['insta_likes']) {
-                $results .= '<span><span class="dashicons dashicons-heart"></span>' . $item['likes'] . '</span>';
+                echo '<span><span class="dashicons dashicons-heart"></span>' . $item['likes'] . '</span>';
             }
             if ($IGItem['insta_comments']) {
-                $results .= '<span><span class="dashicons dashicons-admin-comments"></span>' . $item['comments'] . '</span>';
+                echo '<span><span class="dashicons dashicons-admin-comments"></span>' . $item['comments'] . '</span>';
             }
-            $results .= '</span>';
+            echo '</span>';
         }
-        $results .= '</a>';
-        $results .= '</div>';
+        ?>
+        </a>
+		</div>
+    <?php
     }
     $i ++;
     if (($IGItem['insta_limit'] != 0) && ($i > $IGItem['insta_limit']))
         break;
 }
+?>
+</div>
+	<div class="swiper-pagination"></div>
+<?php if ($IGItem['insta_car-navarrows']) { ?>
+    <div class="swiper-button-prev"></div>
+	<div class="swiper-button-next"></div>
+<?php } ?>
+</div>
+<?php if($IGItem['insta_instalink']){ ?>
+<div class="instagallery-actions">
+	<a href="<?php echo $instaUrl; ?>" target="blank" class="igact-instalink"><span class="dashicons dashicons-external"></span><?php echo $IGItem['insta_instalink-text']; ?></a>
+</div>
+<?php } ?>
 
-$results .= '</div>';
-$results .= '<div class="swiper-pagination"></div>';
-
-if ($IGItem['insta_car-navarrows']) {
-    $results .= '<div class="swiper-button-prev"></div><div class="swiper-button-next"></div>';
-}
-$results .= '</div>';
-if($IGItem['insta_instalink']){
-    $results .= '<div class="instagallery-actions"><a href="'.$instaUrl.'" target="blank" class="igact-instalink"><span class="dashicons dashicons-external"></span>'.$IGItem['insta_instalink-text'].'</a></div>';
-}
-$JSICSelector = '#instagal-' . $IGItem['gid'];
-$IGBSelector = '#ig-block-'.$IGItem['gid'];
-
-$ig_dstyle = '';
-if(!empty($IGItem['insta_instalink-bgcolor'])){
-    $ig_dstyle .= $IGBSelector .' .instagallery-actions .igact-instalink {background: '.$IGItem['insta_instalink-bgcolor'].';}';
-}
-if(!empty($IGItem['insta_instalink-hvrcolor'])){
-    $ig_dstyle .= $IGBSelector .' .instagallery-actions .igact-instalink:hover {background: '.$IGItem['insta_instalink-hvrcolor'].';}';
-}
-if(!empty($ig_dstyle)){
-    $results .= "<script>jQuery(function(){jQuery('head').append('<style>$ig_dstyle</style>');});</script>";
-}
-
-$results .= "<script>
+<?php
+// resize images to square and
+// activate carousel
+?>
+<script>
 jQuery(document).ready(function ($) {
 var mySwiper;
 // resize images to square
-var instacarouselImages = $('$JSICSelector img.instacarousel-image');
+var instacarouselImages = $('<?php echo $JSICSelector; ?> img.instacarousel-image');
 if(instacarouselImages.length){
 var totalImages = instacarouselImages.length, imagesLoaded = 0,minHeight = 0;
 instacarouselImages.load(function(){
@@ -67,7 +84,7 @@ if(minHeight == 0)minHeight = $(this).height();
 // if(minHeight > $(this).height())minHeight = $(this).height();
 if(($(this).width() == $(this).height()))minHeight = $(this).height();
 if(imagesLoaded >= totalImages){
-$('$JSICSelector img.instacarousel-image').each(function(){
+$('<?php echo $JSICSelector; ?> img.instacarousel-image').each(function(){
 var i = $(this);
 var th = i.height();
 if(minHeight < th){
@@ -81,46 +98,49 @@ mySwiper.update();
 });
 }
 
-mySwiper = new Swiper ('$JSICSelector', {
+mySwiper = new Swiper ('<?php echo $JSICSelector; ?>', {
 loop: true,autoplay: 3000,
-autoHeight:true,";
+autoHeight:true,
+<?php
+
 if ($IGItem['insta_car-dots']) {
-    $results .= "pagination: '.swiper-pagination',
-    ";
+    echo "pagination: '.swiper-pagination',";
 }
 if ($IGItem['insta_car-navarrows']) {
-    $results .= "nextButton: '.swiper-button-next',
+    echo "nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',paginationClickable: true,";
 }
 if ($IGItem['insta_car-spacing']) {
-    $results .= "spaceBetween: 20,";
+    echo "spaceBetween: 20,";
 }
-
-$results .= "slidesPerView: {$IGItem['insta_car-slidespv']},";
-
-$results .= "breakpoints: {";
+?>
+slidesPerView: <?php echo $IGItem['insta_car-slidespv']; ?>,
+breakpoints: {
+<?php
 if ($IGItem['insta_car-slidespv'] > 3) {
-    $results .= "1023: {
+    echo "1023: {
         slidesPerView: 3,
         spaceBetween: 20
     },";
 }
 if ($IGItem['insta_car-slidespv'] > 2) {
-    $results .= "767: {
+    echo "767: {
         slidesPerView: 2,
         spaceBetween: 15
     },";
 }
-$results .= "420: {
+echo "420: {
         slidesPerView: 1
     }";
-$results .= "}";
+?>
+}
 
-$results .= "});";
-
+});
+<?php
 if ($IGItem['insta_gal-popup']) {
+    ?>
     
-    $results .= "jQuery('$JSICSelector .swiper-slide>a').magnificPopup({
+    jQuery('<?php echo $JSICSelector; ?> .swiper-slide>a').magnificPopup({
     type: 'image',
     mainClass: 'mfp-with-zoom',
     zoom: {
@@ -139,8 +159,7 @@ titleSrc: function(item) {
 return item.el.attr('data-title');
 }
 }
-});";
-}
-$results .= "});
-</script>";
-
+});
+<?php } ?>
+});
+</script>

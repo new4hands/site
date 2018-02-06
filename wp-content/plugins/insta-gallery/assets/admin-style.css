@@ -8,12 +8,6 @@
 	max-height: 55px;
 }
 
-.ig-no-items-msg {
-	background: #ddd;
-	padding: 50px 30px;
-	color: #dd2b74;
-	font-size: 22px;
-}
 
 .ig-list-buttons {
 	display: inline-block;
@@ -42,6 +36,7 @@
 	z-index: 9;
 	cursor: pointer;
 	-webkit-transition: all 0.25s linear;
+	transition: all 0.25s linear;
 }
 
 .ig-list-buttons li:hover label {
@@ -58,8 +53,8 @@
 	top: 5px;
 	left: 10px;
 	z-index: 5;
-	transition: border .25s linear;
 	-webkit-transition: border .25s linear;
+	transition: border .25s linear;	
 }
 
 .ig-list-buttons li:hover .check {
@@ -76,8 +71,8 @@
 	top: 5px;
 	left: 5px;
 	margin: auto;
+	-webkit-transition: background 0.25s linear;	
 	transition: background 0.25s linear;
-	-webkit-transition: background 0.25s linear;
 }
 
 .ig-list-buttons input[type=radio]:checked ~ .check {
@@ -96,9 +91,11 @@
 	display: inline-block;
 	padding: 5px 20px;
 	background: #972dbe;
+	cursor: pointer;
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
+	-webkit-transition: all .5s;
 	transition: all .5s;
 }
 
@@ -123,7 +120,11 @@
 .ig-tab-content-row.active {
 	display: table-row;
 }
-
+.ig-gallery-list code {
+    font-weight: bold;
+    font-size: 110%;
+    padding: 5px 10px;
+}
 .ig-generate-msgs {
 	color: #e23565;
 	display: none;
@@ -141,13 +142,15 @@
 .wp-core-ui .button-primary.ig-add-update {
 	background: #e23565;
 	font-size: 20px;
-	padding: 6px 15px;
+	padding: 6px 20px;
 	height: auto;
 	margin: 15px 0px;
 	box-shadow: none;
 	text-shadow: none; 
+	-webkit-transition: all .5s;
 	transition: all .5s;
 	border-color: #fff;
+	text-transform: uppercase;
 }
 
 .wp-core-ui .button-primary.ig-add-update:hover {
@@ -169,18 +172,11 @@
 .ig-table-edit input[type="checkbox"]:checked:before {
     color: #e23565;
 }
-.ig_phpc_warning {
-    padding: 5px 10px;
-    background: lightgoldenrodyellow;
-}
-
-.ig_phpc_warning p {
-    font-size: 16px;
-    color: red;
-}
 .ig-table-edit input[type="color"] {
     vertical-align: top;
     padding: 1px 2px;
+	width: 50px;
+    height: 26px;
 }
 /* ******** ig advance setting  ********** */
 .ig_adv-setting-toggle{
@@ -212,7 +208,6 @@
     top: 50%;
     left: 50%;
     width: 60px;
-    height: 60px;
     margin:-30px 0 0 -30px;
     -webkit-animation:igspin 4s linear infinite;
     -moz-animation:igspin 4s linear infinite;
@@ -227,6 +222,7 @@
     padding: 10px 20px;
     background: lightgoldenrodyellow;
     margin-top: 35px;
+	font-weight: bold;
 }
 
 .ig_donation-wrap p {

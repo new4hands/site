@@ -24,24 +24,29 @@
  /* 
  * gallery
  */
-.ig-item {
-    display: inline-block;
+.instagallery-items:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.instagallery-items .ig-item {
+    float: left;
     padding: 10px;
 	box-sizing: border-box;
 	text-align: center;
 	vertical-align: middle;
 }
-.ig-item.no-spacing {
+.instagallery-items .ig-item.no-spacing {
     padding: 0px;
 }
-.ig-item a{
+.instagallery-items .ig-item a{
 	display: block;
 	width: 100%;
 	position: relative;
 	text-align: center;
 	overflow: hidden;
 }
-.ig-item.ighover a:after {
+.instagallery-items .ig-item.ighover a:after {
     content: "";
     left: 50%;
     top: 50%;
@@ -54,7 +59,7 @@
 	opacity: 0;	
 	margin:0;
 }
-.ig-item.ighover a:hover:after {
+.instagallery-items .ig-item.ighover a:hover:after {
     background: #007aff;
     width: 100%;
     height: 100%;

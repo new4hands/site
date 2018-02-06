@@ -1074,6 +1074,7 @@ window.averta = {};
 		}
 		
 		this.setMargin();
+		
 	};
 
 	p.setMargin = function(){
@@ -5201,6 +5202,7 @@ MSViewEvents.CHANGE_END	     	= 'slideChangeEnd';
 		var info_ele = $(slide.$element.find('.ms-info'));
 		var that = this;
 		info_ele.detach();
+		
 		this.data_list[slide.index] = info_ele;
 	};
 	
@@ -5224,7 +5226,7 @@ MSViewEvents.CHANGE_END	     	= 'slideChangeEnd';
 			if(this.current_ele[0].tween)this.current_ele[0].tween.stop(true);
 			this.current_ele[0].tween = CTween.animate(this.current_ele , MSSlideInfo.fadeDuratation  , {opacity:0} , {complete:function(){
 				this.detach();
-				this[0].tween = null;
+				this[0].tween = null; 
 				ele.css('position', 'relative');
 			} , target:this.current_ele });
 
@@ -5236,7 +5238,7 @@ MSViewEvents.CHANGE_END	     	= 'slideChangeEnd';
 	};
 	
 	p.__show = function(ele){
-		ele.appendTo(this.$element).css('opacity','0'); ///.css('position', 'relative');
+		ele.appendTo(this.$element).css('opacity','0');///.css('position', 'relative');
 		
 		// calculate max height
 		if ( this.current_ele ){
@@ -5246,8 +5248,9 @@ MSViewEvents.CHANGE_END	     	= 'slideChangeEnd';
 		clearTimeout(this.tou);
 		this.tou = setTimeout(function(){
 			CTween.fadeIn(ele , MSSlideInfo.fadeDuratation );
-			ele.css('height', '');
+			ele.css('height', '');	
 		}, MSSlideInfo.fadeDuratation);
+
 
 		if(ele[0].tween)ele[0].tween.stop(true);
 		this.current_ele = ele;
@@ -5349,6 +5352,15 @@ MSViewEvents.CHANGE_END	     	= 'slideChangeEnd';
 /**
  * Addon file, it will be appended to master slider front-end main js file.
  */
-;( function ($) { 
+;( function ($) {
+
+    $(window).on('vc_reload', function() {
+        if ( window.MSReady ) {
+            for ( var i = 0, l = MSReady.length; i !== l; i++ ) {
+                MSReady[i].call( null, $ );
+            }
+        }
+    });
+
 	window.msCli = function(f){f=f||'pause';var m=masterslider_instances;for(var i in m){m[i].api[f]();}}
 })(jQuery);

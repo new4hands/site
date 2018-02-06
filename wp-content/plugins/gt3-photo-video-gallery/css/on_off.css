@@ -1,0 +1,140 @@
+.onoffswitch {
+  position: relative;
+  width: 54px;
+  display: inline-block;
+  font-size: 80%;
+  margin-right: 5px !important;
+  line-height: 0;
+}
+.onoffswitch .onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #bbbbbb;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  margin: 0;
+  width: 55px;
+}
+.onoffswitch .onoffswitch-inner {
+  width: 200%;
+  margin-left: -100%;
+  -webkit-transition: margin 0.15s ease-in-out;
+  -o-transition: margin 0.15s ease-in-out;
+  -moz-transition: margin 0.15s ease-in-out;
+  transition: margin 0.15s ease-in-out;
+}
+.onoffswitch .onoffswitch-inner:before,
+.onoffswitch .onoffswitch-inner:after {
+  float: left;
+  width: 50%;
+  height: 24px;
+  padding: 0;
+  line-height: 24px;
+  font-size: 80%;
+  color: #ffffff;
+  font-weight: normal;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.onoffswitch .onoffswitch-inner:before {
+  content: "ON";
+  padding-left: 10px;
+  background-color: #0073aa;
+  color: #ffffff;
+}
+.onoffswitch .onoffswitch-inner:after {
+  content: "OFF";
+  padding-right: 10px;
+  background-color: #fafafa;
+  color: #3d3d3d;
+  text-align: right;
+}
+.onoffswitch .onoffswitch-switch {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  background: #ffffff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  bottom: 0;
+  right: 34px;
+  -webkit-transition: right 0.15s ease-in-out;
+  -o-transition: right 0.15s ease-in-out;
+  -moz-transition: right 0.15s ease-in-out;
+  transition: right 0.15s ease-in-out;
+}
+.toggle-group {
+  position: relative;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 9px;
+  margin-right: 10px;
+  align-items: center;
+  display: inline-flex;
+}
+.toggle-group input[type=checkbox] {
+  position: absolute;
+  visibility: hidden;
+  width: 0;
+  margin: 0;
+  padding: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  min-width: 0;
+  border: none;
+}
+.toggle-group input[type=checkbox]:checked ~ .onoffswitch .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.toggle-group input[type=checkbox]:checked ~ .onoffswitch .onoffswitch-label .onoffswitch-switch {
+  right: 3px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+.toggle-group input[type=checkbox]:focus ~ .onoffswitch {
+  outline: thin dotted #333;
+  outline: 0;
+}
+.toggle-group label {
+  cursor: pointer;
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+  z-index: 1;
+  font-weight: 200;
+}
+/* ==== Accessibility ===== */
+.aural {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+.aural:focus {
+  clip: rect(0, 0, 0, 0);
+  font-size: 1em;
+  height: auto;
+  outline: thin dotted;
+  position: static !important;
+  width: auto;
+  overflow: visible;
+}
+
+/* mixin */
+
+
+.gt3pg_display_none {
+  display: flex;
+  width: 100%;
+  clear: both;
+  flex-direction: column;
+}
+
+
